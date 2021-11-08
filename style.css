@@ -52,6 +52,11 @@ body {
   background-color: rgb(15, 148, 182);
 }
 
+/* stacca leggermente signup e login */
+.menu .addpadding {
+  padding-left: 3%;
+}
+
 
 /******************** Content *********************/
 .content {
@@ -139,5 +144,8 @@ input[type=submit]:hover {
 
   .content form,fieldset {
     width: 100vw;
+  }
+  .menu .addpadding {
+    padding-left: 0;
   }
 }

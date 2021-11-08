@@ -7,32 +7,42 @@
 <body>
 
 <?php
-    foreach ($_POST as &$val) {
-		if (!isset($val)) {
-			echo "<h1>Errore: compilare tutti i campi richiesti</h1>";
-			header("Refresh:5; url=registration_form.php");
-			return;
-		}
-
-		if (empty($val)){
-			echo "<h1>Errore: non possono essere presenti campi vuoti</h1>";
-			header("Refresh:5; url=registration_form.php");
-			return;
-		}
+	function test_input($data) {
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		return $data;
 	}
+
+		// inizia una sessione
+		session_start();
+
+    foreach ($_POST as &$val) {
+			if (!isset($val)) {
+				echo "<h1>Errore: compilare tutti i campi richiesti</h1>";
+				header("Refresh:5; url=registration_form.php");
+				return;
+			}
+
+			if (empty($val)){
+				echo "<h1>Errore: non possono essere presenti campi vuoti</h1>";
+				header("Refresh:5; url=registration_form.php");
+				return;
+			}
+		}
 
     $email = test_input($_POST["email"]);
-	if (!($email = filter_var($email, FILTER_VALIDATE_EMAIL))) {
-		echo "<h1>Error: formato email non valido</h1>";
-		header("Refresh:5; url=registration_form.php");
-		return;
-	}
+		if (!($email = filter_var($email, FILTER_VALIDATE_EMAIL))) {
+			echo "<h1>Error: formato email non valido</h1>";
+			header("Refresh:5; url=registration_form.php");
+			return;
+		}
 
-	$password = test_input($_POST["pass"]);
+		$password = test_input($_POST["pass"]);
     $hash = "";
 
     $fp=fopen($_SERVER['DOCUMENT_ROOT']."/../users.txt","r");
-	flock($fp, LOCK_SH);
+		flock($fp, LOCK_SH);
 
     $founded = false;
     while (!feof($fp) && !$founded) {
@@ -52,13 +62,15 @@
         header("Refresh:5; url=login_form.php");
         return;
     }
+		else{
+			 // inizializza le variabili di sessione
+			 $_SESSION["login"] = "yes";
+			 $_SESSION["name"] = $words[0];
+			 $_SESSION["surname"] = $words[1];
+			 $_SESSION["email"] = $words[2];
 
-    function test_input($data) {
-		$data = trim($data);
-		$data = stripslashes($data);
-		$data = htmlspecialchars($data);
-		return $data;
-	}
+			 header("Location: homepage.php");
+			}
 ?>
 
 </body>
