@@ -1,9 +1,9 @@
 # saw-progetto21
 
 Dati condivisi:
-Nome Utente: 4784539
-Pass Utente: LaxMarti2122 
-Nome DataBase: saw_progetto21_db
+- Nome Utente: 4784539
+- Pass Utente: LaxMarti2122 
+- Nome DataBase: saw_progetto21_db
 
 --------------------------------------------------------------------------------------
 
