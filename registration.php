@@ -7,14 +7,19 @@
 <body>
 
 <?php
-	/****************************************************************************/
-	/* TO BE DONE                                                               */
-	/*                                                                          */
-	/* This means: reading the data sent in POST, "cleaning" them, verifying    */
-	/* that the user sent what you expect, writing data in the file             */
-	/*                                                                          */
-    	/* If something goes wrong send back appropriate messages                   */
-	/****************************************************************************/
+	// mi connetto al DB
+	include("Comuni/DB_connect.php");
+?>
+
+<?php
+
+	// Funzione che esegue diversi controlli sui dati in input
+	function test_input($data) {
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		return $data;
+	}
 
 	$filename = $_SERVER['DOCUMENT_ROOT']."/../users.txt";
 
@@ -35,11 +40,12 @@
 		}
 	}
 	
-	$firstname = test_input($_POST["firstname"]);
-	$lastname = test_input($_POST["lastname"]);
+	// effettuo, oltre ai controlli di base, anche un escaping per i dati in input al DB
+	$firstname = mysqli_real_escape_string($con, test_input($_POST["firstname"]));
+	$lastname = mysqli_real_escape_string($con, test_input($_POST["lastname"]));
 	
 	// 2. Controllo che la mail inserita sia valida
-	$email = test_input($_POST["email"]);
+	$email = mysqli_real_escape_string($con, test_input($_POST["email"]));
 	if (!($email = filter_var($email, FILTER_VALIDATE_EMAIL))) {
 		echo "<h1>Error: formato email non valido</h1>";
 		header("Refresh:5; url=registration_form.php");
@@ -92,20 +98,16 @@
 	
 	/* Se tutto va a buon fine, scrivo i dati e la password cifrata */
 	$hash = password_hash($password, PASSWORD_DEFAULT);
-	$line = $firstname ."|". $lastname ."|". $email ."|". $hash; 
-	
-	//Apertura file e scrittura dati
-	$fp=fopen($filename,"a");
-	flock($fp, LOCK_EX);
-	fwrite($fp, $line);
-	flock($fp, LOCK_UN);
-	fclose($fp);
 
-	function test_input($data) {
-		$data = trim($data);
-		$data = stripslashes($data);
-		$data = htmlspecialchars($data);
-		return $data;
+	// preparo la query
+	$insert_query = "INSERT INTO utenti (id, firstname, lastname, email, pass)
+										VALUES (NULL, '".$firstname."', '".$lastname."', '".$email."', '".$hash."');"; 
+
+	// eseguo la query
+	if(!mysqli_query($con, $insert_query))
+	{
+		echo "<h1> Qualcosa è andato storto :( </h1>";
+    exit();
 	}
 
 	// e poi vado alla pagina di login
