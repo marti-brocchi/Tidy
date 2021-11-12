@@ -45,8 +45,6 @@
 		return;
 	}
 
-	$password = test_input($_POST["pass"]);
-
 	/* Acquisizione dei dati corrispondenti all'e-mail */
 
 	// costruisco una query che restituisce i dati associati all'utente con quella mail
