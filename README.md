@@ -20,6 +20,10 @@ PAGINE HTML
 PHP
 
 
+**A fine progetto:**
+- portare DB_connect fuori dalla document root
+
+
 --------------------------------------------------------------------------------------
 
 *Fatto:*
