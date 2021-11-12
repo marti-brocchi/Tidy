@@ -52,9 +52,8 @@
 		return;
 	}
 
-	$password = test_input($_POST["pass"]);
-	$confirm = test_input($_POST["confirm"]);
-
+	$password = $_POST["pass"];
+	$confirm = $_POST["confirm"];
 
 	// 3. Controllo che le password non siano uguali
 	if (strcmp($password, $confirm)!=0) {
