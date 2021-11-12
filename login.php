@@ -44,6 +44,8 @@
 		header("Refresh:5; url=registration_form.php");
 		return;
 	}
+	
+	$password = $_POST["pass"];
 
 	/* Acquisizione dei dati corrispondenti all'e-mail */
 
