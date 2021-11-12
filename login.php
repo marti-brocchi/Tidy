@@ -48,26 +48,8 @@
 	$password = test_input($_POST["pass"]);
 
 	/* Acquisizione dei dati corrispondenti all'e-mail */
-  
-	/* da file
-	$fp=fopen($_SERVER['DOCUMENT_ROOT']."/../users.txt","r");
-	flock($fp, LOCK_SH);
 
-  $founded = false;
-  while (!feof($fp) && !$founded) {
-    $line = fgets($fp);
-    if (strpos($line, $email)) {
-  	  $founded= true;
-      $words = explode('|', trim($line));
-      $hash = $words[sizeof($words)-1];
-    }
-  }
-    
-	flock($fp, LOCK_UN);
-	fclose($fp);
-	*/
-
-	// costruisco una query che restituisce l'email associata all'utente
+	// costruisco una query che restituisce i dati associati all'utente con quella mail
 	$select_query = "SELECT * FROM utenti
 										WHERE email = '".$email."';"; 
 

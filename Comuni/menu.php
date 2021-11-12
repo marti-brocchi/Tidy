@@ -1,6 +1,6 @@
 <nav class="menu">
     <ul>
-        <li><a href="#">Home</a></li> 
+        <li><a href="homepage.php">Home</a></li> 
         <li><a href="#">Prodotti</a></li>
         <li><a href="#">Shop</a></li>
         <li><a href="#">Chi siamo</a></li> 
@@ -12,7 +12,7 @@
             if(isset($_SESSION["login"])) // se è impostata il login ha avuto successo
             {
                 // visualizzo profilo e logout
-                echo "<li class=\"addpadding\"><a href=\"#\">Profilo</a></li>";
+                echo "<li class=\"addpadding\"><a href=\"show_profile.php\">Profilo</a></li>";
                 echo "<li><a href=\"logout.php\">Logout</a></li>";
             }
             else 
