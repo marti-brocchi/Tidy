@@ -3,8 +3,7 @@
 <head>
     <title>Tidy - Profile</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<meta name = "viewport" content = "width=device-width" />
+    <meta name = "viewport" content = "width=device-width" />
 </head>
 
 <body>
@@ -14,13 +13,14 @@
       include("Comuni/menu.php");
       include("Comuni/DB_connect.php");
     ?>
-
+    <div class="content">
     <?php
-      // la sessione è già stata inizializzata in menu.php
-      echo "<h1 class='centered'>".$_SESSION["firstname"]." ".$_SESSION["lastname"]."</h1>";
-      
-
+      if (isset($_SESSION["login"]))
+        echo "<h1>".$_SESSION["firstname"]." ".$_SESSION["lastname"]."</h1>";
+      else
+        header("Location: login_form.php");
     ?>
+    </div>
   </div>
 	
 	<?php include("Comuni/footer.php"); ?>
