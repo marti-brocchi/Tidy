@@ -58,7 +58,7 @@ body {
 }
 
 
-/******************** Content *********************/
+/************** Form di Registrazione/Login ****************/
 .content {
   flex-shrink: 0;
   padding: 2%;
@@ -80,7 +80,7 @@ body {
   padding: 1%;
 }
 
-input[type=text], input[type=password], input[type=email] {
+input[type=text], input[type=password], input[type=tel], input[type=date], input[type=email] {
   width: 70%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -103,6 +103,46 @@ input[type=submit]:hover {
   opacity: 0.8;
 }
 
+/******* Classi Ausiliarie nelle Varie Pagine *********/
+.itscentered {
+  text-align: center;
+}
+
+/******************** Profile Page *********************/
+
+.profileContainer{
+  width: 99%;
+  padding: 0;
+  margin:0;
+}
+.profileContainer img{
+  width: 150px;
+}
+
+.profileContainer .form-control:focus {
+  box-shadow: none;
+  border-color: rgb(15, 148, 182);
+}
+
+.profileContainer .profile-button {
+  background-color: rgb(15, 148, 182);
+  color: white;
+  padding: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.profileContainer .profile-button:hover {
+  opacity: 0.8;
+}
+
+.profileContainer .profile-button:focus {
+  opacity: 0.8;
+}
+
+.profileContainer .profile-button:active {
+  opacity: 0.8;
+}
 /******************** Footer *********************/
 .footer {
   flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
