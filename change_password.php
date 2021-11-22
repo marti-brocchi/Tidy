@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <title>Tidy - Change password</title>
+    <title>Tidy - Modifica password</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
 	<meta name = "viewport" content = "width=device-width" />
 </head>
@@ -11,19 +11,16 @@
 <body>
   <div class="container">
     <?php 
-      include("Comuni/DB_connect.php");
+      if (!isset($_SESSION["login"])) {
+        header("Location: login_form.php");
+        exit();
+      }
+      
       include("Comuni/header.php");
       include("Comuni/menu.php");
     ?>
 
     <div class="content">
-      <?php
-        if (!isset($_SESSION["login"])) {
-          header("Location: login_form.php");
-          exit();
-        }
-      ?>
-
       <form action="change_pass.php" method="post">
         <fieldset>
         <legend> <b> Modifica password </b> </legend>

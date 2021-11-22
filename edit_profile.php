@@ -1,43 +1,55 @@
+<?php session_start(); ?>
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>Modifica profilo</title>
+</head>
+
+<body>
+
 <?php 
-  session_start();
+    include("Comuni/DB_connect.php");
 
-  // se non c'è sessione, reindirizza al login
-  if (!(isset($_SESSION["login"]))) header("Location: login_form.php");
+    // se non c'è sessione, reindirizza al login
+    if (!(isset($_SESSION["login"]))) header("Location: login_form.php");
 
-  include("Comuni/DB_connect.php");
+    function test_input($data) {
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		return $data;
+	}
 
-  // costruisco una query che restituisce i dati associati all'utente con quella mail
-  // utenti.firstname, utenti.lastname, utenti.DataDiNascita, utenti.Telefono, utenti.Stato, utenti.Provincia, utenti.Citta, utenti.Indirizzo, utenti.CAP
-  
-  $update_query = "UPDATE utenti
-  SET firstname = '".$_POST["firstname"]."', lastname = '".$_POST["lastname"]."', 
-  dataDiNascita = '".$_POST["dataDiNascita"]."', telefono = '".$_POST["telefono"]."', 
-  stato	= '".$_POST["stato"]."', provincia = '".$_POST["provincia"]."',
-  citta = '".$_POST["citta"]."', indirizzo = '".$_POST["indirizzo"]."',
-  CAP = '".$_POST["CAP"]."' WHERE email = '".$_POST["email"]."';";
+    $firstname = isset($_POST["firstname"]) ? test_input($_POST["firstname"]) : "";
+    $lastname = isset($_POST["lastname"]) ? test_input($_POST["lastname"]) : "";
+    $dataDiNascita = isset($_POST["dataDiNascita"]) ? test_input($_POST["dataDiNascita"]) : "";
+    $telefono = isset($_POST["telefono"]) ? test_input($_POST["telefono"]) : "";
+    $stato = isset($_POST["stato"]) ? test_input($_POST["stato"]) : "";
+    $provincia = isset($_POST["provincia"]) ? test_input($_POST["provincia"]) : "";
+    $citta = isset($_POST["citta"]) ? test_input($_POST["citta"]) : "";
+    $indirizzo = isset($_POST["indirizzo"]) ? test_input($_POST["indirizzo"]) : "";
+    $cap = isset($_POST["CAP"]) ? test_input($_POST["CAP"]) : "";
 
-  echo $update_query; // DEBUG
+    echo $firstname. "/". $lastname. "/". $dataDiNascita. "/". $telefono. "/". $stato. "/". $provincia. "/". $citta. "/". $indirizzo. "/". $cap;
 
-  // eseguo la query
-  //$result = mysqli_query($con, $update_query);
+    // costruisco una query che restituisce i dati associati all'utente con quella mail
+    // utenti.firstname, utenti.lastname, utenti.DataDiNascita, utenti.Telefono, utenti.Stato, utenti.Provincia, utenti.Citta, utenti.Indirizzo, utenti.CAP
+    $stmt = mysqli_prepare($con, "UPDATE utenti SET firstname = ?, lastname = ?, dataDiNascita = ?, telefono = ?, stato = ?, provincia = ?, citta = ?, indirizzo = ?, CAP = ? WHERE email = ?");
+    mysqli_stmt_bind_param($stmt, 'ssssssssss', $firstname, $lastname, $dataDiNascita, $telefono, $stato, $provincia, $citta, $indirizzo, $cap, $_SESSION["email"]);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
 
-  //echo "<br>Result: ".$result;
+    if (mysqli_affected_rows($con)==0){
+        echo "<h1>Errore: update non eseguito</h1>";
+        header("Refresh:5; url=show_profile.php");
+        exit();
+    }
 
-  if (mysqli_query($con, $update_query)) {
-    echo "Record updated successfully";
-  } else {
-    echo "Error updating record: " . mysqli_error($con);
-  }
-
-  /* controllo che tutto sia andato a buon fine
-  if(!($result))
-  {
-    echo "<h1> Qualcosa è andato storto :( </h1>";
-    exit();
-  }*/
-
-  mysqli_close($con);
-
-  header("Location: show_profile.php");
+    mysqli_close($con);
+    header("Location: show_profile.php");
 
 ?>
+
+</body>
+</html>

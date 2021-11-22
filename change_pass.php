@@ -1,15 +1,15 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <title>Change password</title>
+    <title>Modifica password</title>
 </head>
 
 <body>
 
 <?php
     include("Comuni/DB_connect.php");
-
-    session_start();
 
     if(!isset($_SESSION["login"])) {
         header("Location: login_form.php");
@@ -69,6 +69,7 @@
     $newstmt = mysqli_prepare($con, "UPDATE utenti SET pass=? WHERE email=?");
     mysqli_stmt_bind_param($newstmt, 'ss', $hash, $_SESSION["email"]);
     mysqli_stmt_execute($newstmt);
+    mysqli_stmt_close($newstmt);
 
     if (mysqli_affected_rows($con)==0){
         echo "<h1>Errore: update non eseguito</h1>";
@@ -76,8 +77,7 @@
         exit();
     }
 
-    mysqli_stmt_close($newstmt);
-
+    mysqli_close($con);
 	header("Location: show_profile.php");
 ?>
 
