@@ -14,15 +14,7 @@ CSS
 - Visualizzazione mobile form
 
 PAGINE HTML
-- Comuni/header: aggiungere link home su logo
 - Aggiungere logo animation
-- manca la modifica della password del profilo
-
-PHP:
-- manca tutta l'interazione con il php di show_profile ed edit_profile
-
-
---------------------------------------------------------------------------------------
 
 *Fatto:*
 
