@@ -1,9 +1,10 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <title>Tidy - Login</title>
+    <title>Tidy - Home</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<meta name = "viewport" content = "width=device-width" />
 </head>
 
@@ -14,6 +15,14 @@
             include("Comuni/menu.php");
         ?>
         
+        <div class="content">
+            <?php
+                if(isset($_SESSION["login"]))
+                    echo "<h1> Benvenuto ".$_SESSION["firstname"]."! </h1>";
+                else
+                    echo "<h1> Benvenuto! Registrati o effettua il login </h1>";
+            ?>
+        </div>
   	</div>
 	
 	<?php include("Comuni/footer.php"); ?>

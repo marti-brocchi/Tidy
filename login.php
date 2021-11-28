@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <title>Sign-in</title>
+    <title>Login</title>
 </head>
 
 <body>
@@ -67,8 +67,10 @@
 	$_SESSION["firstname"] = $row["firstname"];
 	$_SESSION["lastname"] = $row["lastname"];
 	$_SESSION["email"] = $row["email"];
-
+	
+	mysqli_close($con);
 	header("Location: homepage.php");
+	exit();
 ?>
 
 </body>

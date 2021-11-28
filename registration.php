@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <title>Sign-up</title>
+    <title>Registrazione</title>
 </head>
 
 <body>
@@ -62,6 +62,7 @@
     }
 
     mysqli_stmt_close($stmt);
+	mysqli_close($con);
 	header("Location: login_form.php");
 ?>
 

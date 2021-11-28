@@ -52,13 +52,7 @@ body {
   background-color: rgb(15, 148, 182);
 }
 
-/* stacca leggermente signup e login */
-.menu .addpadding {
-  padding-left: 3%;
-}
-
-
-/************** Form di Registrazione/Login ****************/
+/******************** Content *********************/
 .content {
   flex-shrink: 0;
   padding: 2%;
@@ -80,7 +74,7 @@ body {
   padding: 1%;
 }
 
-input[type=text], input[type=password], input[type=tel], input[type=date], input[type=email] {
+input[type=text], input[type=password], input[type=email] {
   width: 70%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -103,13 +97,7 @@ input[type=submit]:hover {
   opacity: 0.8;
 }
 
-/******* Classi Ausiliarie nelle Varie Pagine *********/
-.itscentered {
-  text-align: center;
-}
-
 /******************** Profile Page *********************/
-
 .profileContainer{
   width: 99%;
   padding: 0;
@@ -143,6 +131,7 @@ input[type=submit]:hover {
 .profileContainer .profile-button:active {
   opacity: 0.8;
 }
+
 /******************** Footer *********************/
 .footer {
   flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
@@ -185,6 +174,7 @@ input[type=submit]:hover {
   .content form,fieldset {
     width: 100vw;
   }
+  
   .menu .addpadding {
     padding-left: 0;
   }

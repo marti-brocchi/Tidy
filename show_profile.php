@@ -1,20 +1,21 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
   <title>Tidy - Profilo</title>
-  <link rel="stylesheet" type="text/css" href="style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css" />
   <meta name = "viewport" content = "width=device-width" />
 </head>
 
 <body>
-  <?php 
+  <?php
+
     include("Comuni/header.php");
     include("Comuni/menu.php");
     include("Comuni/DB_connect.php");
-  ?>
 
-  <?php
     // se non c'è sessione, reindirizza al login
     if (!(isset($_SESSION["login"]))) header("Location: login_form.php");
 
@@ -89,10 +90,6 @@
                 </div>
               </fieldset>
             </div>
-                      
-            <div class="mt-5 text-center">
-              <input type="submit" class="profileButton" name="submit" value="Salva Profilo">
-            </div>
           </div>
         </div>
           
@@ -141,6 +138,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="mt-5 text-center">
+        <input type="submit" class="profileButton" name="submit" value="Salva Profilo">
       </div>
     </form>
   </div>

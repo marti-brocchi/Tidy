@@ -7,22 +7,14 @@
         <li><a href="#">Contatti</a></li>
 
         <?php
-            session_start(); // recupera la sessione esistente
-
-            if(isset($_SESSION["login"])) // se è impostata il login ha avuto successo
-            {
-                // visualizzo profilo e logout
-                echo "<li class=\"addpadding\"><a href=\"show_profile.php\">Profilo</a></li>";
-                echo "<li><a href=\"logout.php\">Logout</a></li>";
+            if(isset($_SESSION["login"])){
+                echo"<li><a href=\"show_profile.php\">Profilo</a></li>";
+                echo"<li><a href=\"logout.php\">Logout</a></li>";
             }
-            else 
-            {
-                // visualizzo login e registrati
-                echo "<li class=\"addpadding\"><a href=\"registration_form.php\">Registrati</a></li>";
-                echo "<li><a href=\"login_form.php\">Login</a></li>";
+            else {
+                echo"<li><a href=\"registration_form.php\">Registrati</a></li>";
+                echo"<li><a href=\"login_form.php\">Login</a></li>";
             }
         ?>
-
-         
     </ul>
 </nav>
