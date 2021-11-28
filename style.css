@@ -74,7 +74,7 @@ body {
   padding: 1%;
 }
 
-input[type=text], input[type=password], input[type=email] {
+.content input[type=text], input[type=password], input[type=email] {
   width: 70%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -83,7 +83,7 @@ input[type=text], input[type=password], input[type=email] {
   box-sizing: border-box;
 }
 
-input[type=submit] {
+.content input[type=submit] {
   background-color: rgb(15, 148, 182);
   color: white;
   padding: 14px 20px;
@@ -93,11 +93,13 @@ input[type=submit] {
   width: 25%;
 }
 
-input[type=submit]:hover {
+.content input[type=submit]:hover {
   opacity: 0.8;
 }
 
+
 /******************** Profile Page *********************/
+
 .profileContainer{
   width: 99%;
   padding: 0;
@@ -107,29 +109,46 @@ input[type=submit]:hover {
   width: 150px;
 }
 
+.profileContainer input[type=text], input[type=password], input[type=tel], input[type=date], input[type=email] {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.profileContainer input[type=submit] {
+  background-color: rgb(15, 148, 182);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.profileContainer input[type=submit]:hover {
+  opacity: 0.8;
+}
+
 .profileContainer .form-control:focus {
   box-shadow: none;
   border-color: rgb(15, 148, 182);
 }
 
-.profileContainer .profile-button {
+.btnChangePass {
   background-color: rgb(15, 148, 182);
   color: white;
+  text-decoration: none;
+  display: inline-block;
   padding: 14px;
-  border: none;
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
-.profileContainer .profile-button:hover {
+a.btnChangePass:hover {
   opacity: 0.8;
-}
-
-.profileContainer .profile-button:focus {
-  opacity: 0.8;
-}
-
-.profileContainer .profile-button:active {
-  opacity: 0.8;
+  color: white;
 }
 
 /******************** Footer *********************/

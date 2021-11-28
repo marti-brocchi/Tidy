@@ -30,13 +30,19 @@
     $citta = isset($_POST["citta"]) ? test_input($_POST["citta"]) : "";
     $indirizzo = isset($_POST["indirizzo"]) ? test_input($_POST["indirizzo"]) : "";
     $cap = isset($_POST["CAP"]) ? test_input($_POST["CAP"]) : "";
+    $sesso = isset($_POST["sesso"]) ? test_input($_POST["sesso"]) : "";
 
-    echo $firstname. "/". $lastname. "/". $dataDiNascita. "/". $telefono. "/". $stato. "/". $provincia. "/". $citta. "/". $indirizzo. "/". $cap;
+    echo $firstname. "/". $lastname. "/". $dataDiNascita. "/". $telefono. "/". $stato. "/". $provincia. "/". $citta. "/". $indirizzo. "/". $cap. "/". $sesso;
 
     // costruisco una query che restituisce i dati associati all'utente con quella mail
     // utenti.firstname, utenti.lastname, utenti.DataDiNascita, utenti.Telefono, utenti.Stato, utenti.Provincia, utenti.Citta, utenti.Indirizzo, utenti.CAP
-    $stmt = mysqli_prepare($con, "UPDATE utenti SET firstname = ?, lastname = ?, dataDiNascita = ?, telefono = ?, stato = ?, provincia = ?, citta = ?, indirizzo = ?, CAP = ? WHERE email = ?");
-    mysqli_stmt_bind_param($stmt, 'ssssssssss', $firstname, $lastname, $dataDiNascita, $telefono, $stato, $provincia, $citta, $indirizzo, $cap, $_SESSION["email"]);
+    $stmt = mysqli_prepare($con, "UPDATE utenti SET firstname = ?, lastname = ?, dataDiNascita = ?, telefono = ?, stato = ?, provincia = ?, citta = ?, indirizzo = ?, CAP = ?, sesso = ? WHERE email = ?");
+    if(!$stmt)
+    {
+        die("errore mysqli: ".mysqli_error($con));
+    }
+    
+    mysqli_stmt_bind_param($stmt, "sssssssssss", $firstname, $lastname, $dataDiNascita, $telefono, $stato, $provincia, $citta, $indirizzo, $cap, $sesso, $_SESSION["email"]);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 

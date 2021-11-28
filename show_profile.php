@@ -4,18 +4,21 @@
 <html lang="it">
 <head>
   <title>Tidy - Profilo</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <meta name = "viewport" content = "width=device-width" />
+  
 </head>
 
 <body>
-  <?php
-
+  <?php 
     include("Comuni/header.php");
     include("Comuni/menu.php");
     include("Comuni/DB_connect.php");
+  ?>
 
+  <?php
     // se non c'è sessione, reindirizza al login
     if (!(isset($_SESSION["login"]))) header("Location: login_form.php");
 
@@ -42,9 +45,30 @@
       <div class="row">
         <div class="col-md-3 border-right">
           <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-            <img class="rounded-circle mt-5" alt="immagine di profilo" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+            <img class="rounded-circle mt-5" alt="immagine di profilo" id="ImmagineProfilo" src=
+            <?php 
+              if($user_data["sesso"] == "maschio") echo "https://cdn2.iconfinder.com/data/icons/lil-silhouettes/2176/person13-1024.png";
+              else if($user_data["sesso"] == "femmina") echo "https://cdn2.iconfinder.com/data/icons/lil-silhouettes/2176/person12-1024.png";
+              else echo "https://cdn4.iconfinder.com/data/icons/light-ui-icon-set-1/130/avatar_2-1024.png";
+            ?>>
             <?php echo "<span class=\"font-weight-bold\">".$user_data["firstname"]." ".$_SESSION["lastname"]."</span>"  ?>
             <?php echo "<span class=\"text-black-50\">".$user_data["email"]."</span>" ?>
+            <br>
+            <fieldset id="sceltaSesso">
+              <legend hidden> <b> Sesso: </b> </legend>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="sesso" id="maschio" value="maschio"
+                  <?php if($user_data["sesso"] == "maschio") echo "checked"?>>
+                  <label class="form-check-label" for="inlineRadio1">M</label>
+                  <i class="fa fa-male" aria-hidden="true"></i>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="sesso" id="femmina" value="femmina"
+                  <?php if($user_data["sesso"] == "femmina") echo "checked"?>>
+                  <label class="form-check-label" for="inlineRadio2">F</label>
+                  <i class="fa fa-female" aria-hidden="true"></i>
+                </div>
+            </fieldset>
           </div>
         </div>
 
@@ -90,6 +114,10 @@
                 </div>
               </fieldset>
             </div>
+                      
+            <div class="mt-5 text-center">
+              <a href="change_password" class="btnChangePass">Cambia la Password</a>
+            </div>
           </div>
         </div>
           
@@ -134,18 +162,20 @@
                     echo "value='".$user_data["CAP"]."'";
                   ?> >
                 </div>
+                <div class="mt-5 text-center">
+                  <input type="submit" class="profileButton" name="submit" value="Salva Profilo">
+                </div>
               </fieldset>
             </div>
           </div>
         </div>
       </div>
-      <div class="mt-5 text-center">
-        <input type="submit" class="profileButton" name="submit" value="Salva Profilo">
-      </div>
     </form>
   </div>
 
 	<?php include("Comuni/footer.php"); ?>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
