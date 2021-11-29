@@ -13,6 +13,10 @@ Nome DataBase: saw_progetto21_db (LAX), saw_progetto_21_db (MARTI)
 
 *Da fare:*
 
+BUG DA RISOLVERE:
+- quando mi registro con una mail già esistente lato server non fa niente (perfetto) 
+  ma lato client non mi da errori e mi manda al login (da fixare)
+
 CSS
 - Visualizzazione mobile form
 
