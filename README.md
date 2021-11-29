@@ -25,10 +25,14 @@ PAGINE HTML
 
 *Fatto:*
 
-PHP
 - sessioni e cookies (09/11/2021)
-- logout (menù dinamico) (09/11/2021)
+
+- logout (menu dinamico) (09/11/2021)
 
 - Memorizzazione dei dati degli utenti in tabella (10/11/2021)
 
 - Pagina show_profile a livello strutturale (14/11/2021)
+
+- Pagina per il cambio di password e prepared statement (21/11/2021)
+
+- Aggiunta di attributo sesso con animazione sul profilo e controlli JS nella pagina di registrazione (29/11/2021)
