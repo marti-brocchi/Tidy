@@ -23,6 +23,9 @@ CSS
 PAGINE HTML
 - Aggiungere logo animation
 
+--------------------------------------------------------------------------------------
+
+
 *Fatto:*
 
 - sessioni e cookies (09/11/2021)
