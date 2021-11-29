@@ -163,7 +163,7 @@
                   ?> >
                 </div>
                 <div class="mt-5 text-center">
-                  <input type="submit" class="profileButton" name="submit" value="Salva Profilo">
+                  <input type="submit" class="profileButton" id="profileButton" name="submit" value="Salva Profilo">
                 </div>
               </fieldset>
             </div>
@@ -175,7 +175,7 @@
 
 	<?php include("Comuni/footer.php"); ?>
 
-  <script src="script.js"></script>
+  <script src="scriptProfile.js"></script>
 
 </body>
 </html>

@@ -33,21 +33,24 @@
 
 					<i class="fas fa-key"></i>
 					<label for="pass">Password</label> <br>
-					<input type="password" id="pass" name="pass" placeholder="Inserisci password" required> <br><br>
+					<input type="password" id="pass" name="pass" placeholder="Inserisci password" required> 
+					<div id="mesPassRegistration"></div><br>
 
 					<i class="fas fa-key"></i>
 					<label for="confirm">Conferma password</label> <br>
 					<input type="password" id="confirm" name="confirm" placeholder="Inserisci password" required>
+					<div id="mesConfRegistration"></div>
 
 				</fieldset>
 				<br><br>
-				<input type="submit" name="submit" value="Invia">
+				<input type="submit" id="submitRegistration" name="submit" value="Invia">
 			</form>
 		</div>
 	</div>
 	
 	<?php include("Comuni/footer.php"); ?>
 	
+	<script src="scriptRegistration.js"> </script>
 </body>
 </html>
 
