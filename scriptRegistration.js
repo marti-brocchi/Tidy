@@ -24,26 +24,9 @@ confirmElement.addEventListener("keyup", function (event)
   }
 });
 
-// prima di invicare i dati
-// controllo che la password sia lunga almeno 8 caratteri e che le password coincidano
-submitRegistration = document.getElementById("submitRegistration");
-mesPassRegistration = document.getElementById("mesPassRegistration");
-
-submitRegistration.addEventListener("click", function (event) 
-{
-  passLongEnough = (passElement.value.length >= 8);
-
-  if(!passLongEnough)
-  {
-    mesPassRegistration.style.color = "red";
-    mesPassRegistration.innerHTML = "La Password deve essere lunga almeno 8 caratteri";
-  }
-
-  if(!passLongEnough || !passMatch) event.preventDefault();
-});
-
-
 // gestisco con API Fetch il controllo dinamico di esistenza dell'email
+var emailIsOkay = false;
+
 emailElement = document.getElementById("email");
 emailElement.addEventListener("keyup", function (event)
 {
@@ -60,8 +43,44 @@ emailElement.addEventListener("keyup", function (event)
       return response.text();
   }
   ).then(function (result) {
-      res.innerHTML = result;
-  }
+    if(result == "false")
+    {
+      res.innerHTML = "La Mail inserita è già stata usata";
+      emailIsOkay = false;
+    }
+    else
+    {
+      res.innerHTML = "";
+      emailIsOkay = true;
+    }
+  } 
   );
 });
+
+// prima di invicare i dati
+// controllo che:
+// -- la password sia lunga almeno 8 caratteri
+// -- le password coincidano
+// -- l'email vada bene
+
+submitRegistration = document.getElementById("submitRegistration");
+mesPassRegistration = document.getElementById("mesPassRegistration");
+
+submitRegistration.addEventListener("click", function (event) 
+{
+  passLongEnough = (passElement.value.length >= 8);
+
+  if(!passLongEnough)
+  {
+    mesPassRegistration.style.color = "red";
+    mesPassRegistration.innerHTML = "La Password deve essere lunga almeno 8 caratteri";
+  }
+  else
+    mesPassRegistration.innerHTML = "";
+
+  if(!passLongEnough || !passMatch || !emailIsOkay) event.preventDefault();
+});
+
+
+
 
