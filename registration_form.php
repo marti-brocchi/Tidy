@@ -29,7 +29,8 @@
 
 					<i class="far fa-envelope"></i>
 					<label for="email">E-mail</label> <br>
-					<input type="email" id="email" name="email" placeholder="Inserisci email" required> <br><br>
+					<input type="email" id="email" name="email" placeholder="Inserisci email" required>
+					<div id="mesEmail"></div><br>
 
 					<i class="fas fa-key"></i>
 					<label for="pass">Password</label> <br>

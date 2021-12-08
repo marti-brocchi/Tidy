@@ -41,3 +41,27 @@ submitRegistration.addEventListener("click", function (event)
 
   if(!passLongEnough || !passMatch) event.preventDefault();
 });
+
+
+// gestisco con API Fetch il controllo dinamico di esistenza dell'email
+emailElement = document.getElementById("email");
+emailElement.addEventListener("keyup", function (event)
+{
+  var email = document.getElementById("email").value;
+  var res = document.getElementById("mesEmail");
+  res.style.color = "red";
+
+  fetch("scriptEmailCheck.php?email=" + email, {
+    method: "GET",
+    headers: { "Content-type": "application/x-www-form-urlencoded" },
+  }
+  ).then(function (response) {
+    if (response.status == 200)
+      return response.text();
+  }
+  ).then(function (result) {
+      res.innerHTML = result;
+  }
+  );
+});
+
