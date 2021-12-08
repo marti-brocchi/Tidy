@@ -14,7 +14,7 @@ Nome DataBase: saw_progetto21_db (LAX), saw_progetto_21_db (MARTI)
 *Da fare:*
 
 BUG DA RISOLVERE:
-
+- controllo lato server di mail già esistente (si può anche richiamare lo script scriptEmailCheck.php)
 
 CSS
 - Visualizzazione mobile form
