@@ -14,8 +14,7 @@ Nome DataBase: saw_progetto21_db (LAX), saw_progetto_21_db (MARTI)
 *Da fare:*
 
 BUG DA RISOLVERE:
-- quando mi registro con una mail già esistente lato server non fa niente (perfetto) 
-  ma lato client non mi da errori e mi manda al login (da fixare)
+
 
 CSS
 - Visualizzazione mobile form
@@ -39,3 +38,5 @@ PAGINE HTML
 - Pagina per il cambio di password e prepared statement (21/11/2021)
 
 - Aggiunta di attributo sesso con animazione sul profilo e controlli JS nella pagina di registrazione (29/11/2021)
+
+- Controllo dinamico dell'esistenza dell'email durante la registrazione (in registration.php) (08/12/2021)
