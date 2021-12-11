@@ -10,17 +10,17 @@ Nome DataBase: saw_progetto21_db (LAX), saw_progetto_21_db (MARTI)
 
 --------------------------------------------------------------------------------------
 
+**Home**
+- Contenuto
+- Sistemare immagini sfondo (risoluzione + dimensioni diverse mobile)
 
-*Da fare:*
+**Registrazione**
+- Controllo campi vuoti js + controllo email js ? (già implementati HTML5)
+- Stile
+- div con errori js con testo sempre inserito ma nascosto (opacity 0?)
 
-BUG DA RISOLVERE:
-- controllo lato server di mail già esistente (si può anche richiamare lo script scriptEmailCheck.php)
-
-CSS
-- Visualizzazione mobile form
-
-PAGINE HTML
-- Aggiungere logo animation
+**Login**
+- Stile (stesso di registrazione)
 
 --------------------------------------------------------------------------------------
 
