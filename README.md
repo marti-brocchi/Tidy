@@ -22,6 +22,7 @@ Nome DataBase: saw_progetto21_db (LAX), saw_progetto_21_db (MARTI)
 **Login**
 - Stile (stesso di registrazione)
 - Controllo campi vuoti js + controllo email js ? (già implementati HTML5)
+- Fare controllo lato client con api-fetch di email e password corrette (corrispondenti ad account)
 
 --------------------------------------------------------------------------------------
 
