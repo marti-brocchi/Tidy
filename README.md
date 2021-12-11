@@ -20,9 +20,15 @@ Nome DataBase: saw_progetto21_db (LAX), saw_progetto_21_db (MARTI)
 - div con errori js con testo sempre inserito ma nascosto (opacity 0?)
 
 **Login**
-- Stile (stesso di registrazione)
+- Stile (form_style.css)
 - Controllo campi vuoti js + controllo email js ? (già implementati HTML5)
-- Fare controllo lato client con api-fetch di email e password corrette (corrispondenti ad account)
+- Fare controllo lato client con api-fetch di email e password corrette (corrispondenti ad account) -> (possibile?)
+
+**Change password**
+- Controllo nuove password coincidano js (stesso controllo di registrazione)
+- Controllo campi vuoti js + controllo email js ? (già implementati HTML5)
+- Fare controllo lato client con api-fetch di vecchia password corretta (possibile?)
+- Stile (form_style.css)
 
 --------------------------------------------------------------------------------------
 
