@@ -9,6 +9,8 @@ Pass Utente: LaxMarti2122 (LAX), LaxMarti2122! (MARTI)
 Nome DataBase: saw_progetto21_db (LAX), saw_progetto_21_db (MARTI)
 
 --------------------------------------------------------------------------------------
+**Header**
+- Aggiungere div per barra di ricerca + javascript connesso
 
 **Home**
 - Contenuto
@@ -29,6 +31,13 @@ Nome DataBase: saw_progetto21_db (LAX), saw_progetto_21_db (MARTI)
 - Controllo campi vuoti js + controllo email js ? (già implementati HTML5)
 - Fare controllo lato client con api-fetch di vecchia password corretta (possibile?)
 - Stile (form_style.css)
+
+**Show profile**
+- stile
+
+**Shop**
+
+**Carrello**
 
 --------------------------------------------------------------------------------------
 
