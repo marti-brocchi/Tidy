@@ -35,6 +35,8 @@ Nome DataBase: saw_progetto21_db (LAX), saw_progetto_21_db (MARTI)
 **Show profile**
 - stile
 
+**Motore di Ricerca**
+
 **Shop**
 
 **Carrello**
