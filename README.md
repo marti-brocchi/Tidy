@@ -13,8 +13,8 @@ Nome DataBase: saw_progetto21_db (LAX), saw_progetto_21_db (MARTI)
 - Aggiungere div per barra di ricerca + javascript connesso
 
 **Home**
-- Contenuto
-- Sistemare immagini sfondo (risoluzione + dimensioni diverse mobile)
+- Fixare bug click su shop per mobile
+- fare contatti
 
 **Registrazione**
 - Controllo campi vuoti js + controllo email js ? (già implementati HTML5)
