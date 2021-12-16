@@ -1,1 +1,0 @@
-<footer class="footer">Copyright &copy; 2021-2022. Privacy policy.</footer>
