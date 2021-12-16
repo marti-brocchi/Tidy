@@ -1,0 +1,50 @@
+.show-profile .h-100 {
+    padding: 120px 0;
+}
+
+.profile-photo {
+    width: 180px;
+    height: 200px;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.profile-item {
+    width: 33%;
+    padding: 0 20px;
+    text-align: center;
+    display: inline-block;
+}
+
+.form-check-inline {
+    display: inline-block;
+}
+
+.form-check-inline :not(label:last-child){
+    padding-right: 20px;
+}
+
+.password {
+    padding-top: 40px;  
+}
+
+.button {
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #dedede;
+    color: black;
+}
+
+a.button:hover {
+    background-color: #24292d;
+    color: #ffffff;
+}
+
+@media(max-width:991px) {
+    .profile-item {
+        text-align: center;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 40px;
+    }
+}
