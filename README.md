@@ -32,16 +32,15 @@ Nome DataBase: saw_progetto21_db (LAX), saw_progetto_21_db (MARTI)
 **Login**
 - Stile (form_style.css)
 - Controllo campi vuoti js + controllo email js ? (già implementati HTML5)
-- Fare controllo lato client con api-fetch di email e password corrette (corrispondenti ad account) -> (possibile?)
 
 **Change password**
 - Controllo nuove password coincidano js (stesso controllo di registrazione)
 - Controllo campi vuoti js + controllo email js ? (già implementati HTML5)
-- Fare controllo lato client con api-fetch di vecchia password corretta (possibile?)
 - Stile (form_style.css)
 
 **Show profile**
-- stile
+- Finire di aggiungere elementi da vecchia pagina profilo
+- Stile
 
 **Motore di Ricerca**
 
