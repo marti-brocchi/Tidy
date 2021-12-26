@@ -9,7 +9,7 @@ function cancelBorder(item, index) {
 
 colori = document.getElementById("colori");
 bracImg = document.getElementById("bracImg");
-card = document.getElementById("card");
+brac = document.getElementById("brac");
 // buyBtn = document.getElementById("buyBtn");
 
 colori.addEventListener("click", function (event) 
@@ -25,27 +25,27 @@ colori.addEventListener("click", function (event)
     if(style.backgroundColor == "rgb(233, 137, 59)") // arancione
     {
       bracImg.src = "../Immagini/ImmaginiShop/arancione.png";
-      card.style.backgroundColor = "rgb(233, 137, 59)";
+      brac.style.backgroundColor = "rgb(233, 137, 59)";
     }
     else if(style.backgroundColor == "rgb(160, 231, 249)") // azzurro
     {
       bracImg.src = "../Immagini/ImmaginiShop/azzuro.png";
-      card.style.backgroundColor = "rgb(160, 231, 249)";
+      brac.style.backgroundColor = "rgb(160, 231, 249)";
     }
     else if(style.backgroundColor == "rgb(253, 251, 91)") // giallo
     {
       bracImg.src = "../Immagini/ImmaginiShop/giallo.png";
-      card.style.backgroundColor = "rgb(253, 251, 91)";
+      brac.style.backgroundColor = "rgb(253, 251, 91)";
     }
     else if(style.backgroundColor == "rgb(254, 138, 172)") // rosa
     {
       bracImg.src = "../Immagini/ImmaginiShop/rosa.png";
-      card.style.backgroundColor = "rgb(254, 138, 172)";
+      brac.style.backgroundColor = "rgb(254, 138, 172)";
     }
     else if(style.backgroundColor == "rgb(102, 163, 59)")// verde
     {
       bracImg.src = "../Immagini/ImmaginiShop/verde.png";
-      card.style.backgroundColor = "rgb(102, 163, 59)";
+      brac.style.backgroundColor = "rgb(102, 163, 59)";
     }
   }
 });

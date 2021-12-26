@@ -4,6 +4,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    padding-bottom: 10px;
 }
 
 .card{
@@ -144,4 +145,12 @@
   box-sizing: border-box;
   left: -5px;
   top: -5px;
+}
+
+#gel{
+  background-color: #dce6ea;
+}
+
+#bundle{
+  background-color: #f0ece4;
 }
