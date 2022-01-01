@@ -71,7 +71,7 @@
             <div class="container">
                 <div class="row h-100 align-items-center align-content-center">
                     <div class="shop-text">
-                        <a class="button" href="shop.php">Accedi allo Shop</a>
+                        <a class="button" href="../Shop/shop.php">Accedi allo Shop</a>
                     </div>
                 </div>
             </div>

@@ -75,6 +75,14 @@
 	$_SESSION["firstname"] = $row["firstname"];
 	$_SESSION["lastname"] = $row["lastname"];
 	$_SESSION["email"] = $row["email"];
+
+    $cart_array = array(
+        "prod" => array(),    // array per i prodotti
+        "quant" => array(),    // array per le quantità
+    );
+
+    $_SESSION["cart"]=$cart_array;
+
 	
 	mysqli_close($con);
 	header("Location: ../Home/home.php");

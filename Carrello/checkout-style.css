@@ -1,0 +1,25 @@
+.checkout-section {
+  background: url('../Immagini/home-img.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.checkout-section .h-100 {
+  padding: 120px 0;
+}
+
+.checkout-text{
+  margin-bottom: 10%;
+}
+
+.checkout-text h1 {
+  color: #ffffff;
+  font-size: 40px;
+}
+
+.checkout-text h3 {
+  color: #ffffff;
+  font-size: 20px;
+}
