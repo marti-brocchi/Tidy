@@ -108,7 +108,7 @@
             transform: translateX(-50%);
     width: 0;
     height: 100%;
-    background: white;
+    background: rgba(255, 255, 255, 0.924);
     z-index: -1;
     -webkit-transition: width 350ms ease-in-out;
     transition: width 350ms ease-in-out;
@@ -124,23 +124,32 @@
 
 /*** Contatti ***/
 .contatti-text { 
+    width: 33%;
+    padding: 0 20px;
     color: #24292d;
     font-size: 20px;
     text-align: center;
+    display: inline-block;
 }
 
-.person {
-    box-shadow: 5px 5px 2px #dedede;
-    padding: 10px 10px 10px 10px;
+.contatti-text a {
+    text-decoration: none;
+    color: #24292d;
 }
 
-.person .name {
-    text-decoration: solid;
+.contatti-text a:hover {
+    color: rgb(7, 223, 187);
 }
 
 /******* Responsive *******/
 @media(max-width:991px) {
-
+    .contatti-text {
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 40px;
+    }
 }
 
 @media(max-width:575px) {

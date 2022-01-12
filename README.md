@@ -45,13 +45,8 @@ Nome DataBase: saw_progetto21_db (LAX), saw_progetto_21_db (MARTI)
 **Motore di Ricerca**
 
 **Shop**
-dovrebbe essere completo
 
 **Carrello**
-- responsive un pochino impreciso/buggato
-
-**Checkout page**
-dovrebbe essere completa, si può mettere il link per fare le recensioni
 
 --------------------------------------------------------------------------------------
 
@@ -71,5 +66,3 @@ dovrebbe essere completa, si può mettere il link per fare le recensioni
 - Aggiunta di attributo sesso con animazione sul profilo e controlli JS nella pagina di registrazione (29/11/2021)
 
 - Controllo dinamico dell'esistenza dell'email durante la registrazione (in registration.php) (08/12/2021)
-
-- Shop e carrello (01/01/2022)

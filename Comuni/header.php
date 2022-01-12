@@ -10,7 +10,7 @@
             </label>
             <div class="search">
                 <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/search--v1.png" alt="cerca"></img></a>
-                <a href="../Carrello/cart.php"><img src="https://img.icons8.com/material-rounded/30/ffffff/shopping-cart-loaded.png" alt="carrello"></img></a>
+                <a href="#"><img src="https://img.icons8.com/material-rounded/30/ffffff/shopping-cart-loaded.png" alt="carrello"></img></a>
             </div>
         </div>
     </div>

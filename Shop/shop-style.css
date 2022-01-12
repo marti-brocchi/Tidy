@@ -46,12 +46,12 @@
 }
 
 .card .cardImg img{
-  max-width: 85%;
+  max-width: 95%;
   transition: 0.5s;
 }
 
 .card:hover .cardImg img{
-  max-width: 65%;
+  max-width: 75%;
   transition: 0.5s;
 }
 
@@ -75,28 +75,6 @@
   font-weight: 500;
 }
 
-.card .cardContent .quantCont{
-  display: flex;
-  margin: auto;
-}
-
-.card .cardContent .cardQuant{
-  margin-left: 10px;
-  width: fit-content;
-  background-color: transparent;
-  border-radius: 5px;
-
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  outline: none;
-}
-
-.card .cardContent .cardQuant:focus{
-  border: 2px solid #555;
-}
-
 
 .card .cardContent .buy{
   position: relative;
@@ -105,13 +83,13 @@
   transition: 0.5s;
   width: fit-content;
   margin: auto;
-  margin-top: 15px;
   color: white;
   font-size: 15px;
+  position: relative;
   padding: 10px 30px;
   background-color: black;
   border-radius: 20px;
-  cursor: pointer;
+  margin-top: 15px;
 }
 
 .card:hover .cardContent .buy{
@@ -124,29 +102,16 @@
   transition: 0.1s;
 }
 
-.colorCont {
-  padding: 20px;
+.product-colors div {
+  margin-top: 10px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
 
   position: relative;
-  display: inline-block;
-}
-
-/* Hide the browser's default radio button */
-.colorCont input {
-  position: absolute;
-  top:0px;
-  opacity:0;
-}
-
-/* Create a custom radio button */
-.checkmark {
   cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
+  display: inline-block;
+  
 }
 
 .product-colors .arancione {
@@ -155,6 +120,7 @@
 
 .product-colors .azzurro {
   background-color: rgb(160, 231, 249);
+  border: 3px solid black;
 }
 
 .product-colors .giallo {
@@ -169,21 +135,16 @@
   background-color: rgb(102, 163, 59);
 }
 
-/* When the radio button is checked, add a blue background */
-.colorCont input:checked ~ .checkmark {
-  border: 3px solid black;  
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
+.product-colors .active:after{
   content: "";
+  width: 36px;
+  height: 36px;
+  border: 2px solid #000;
   position: absolute;
-  display: none;
-}
-
-/* Show the indicator (dot/circle) when checked */
-.container input:checked ~ .checkmark:after {
-  display: inline-block;
+  border-radius: 50%;
+  box-sizing: border-box;
+  left: -5px;
+  top: -5px;
 }
 
 #gel{
@@ -192,9 +153,4 @@
 
 #bundle{
   background-color: #f0ece4;
-}
-
-/* ausiliarie */
-.add-padding-top{
-  padding-top: 10px;
 }
