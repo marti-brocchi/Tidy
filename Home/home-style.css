@@ -1,0 +1,154 @@
+.home-section {
+    background: url('../Immagini/home-img.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.home-section .h-100 {
+    padding: 120px 0;
+}
+
+.home-text{
+    margin-bottom: 10%;
+}
+
+.home-text h1 {
+    color: #ffffff;
+    font-size: 40px;
+    text-transform: capitalize;
+}
+
+.home-text h3 {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+/*** Chi siamo ***/
+.chi-siamo-section {
+    background: url('../Immagini/chi-siamo.PNG') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.chi-siamo-section .h-100 {
+    padding: 120px 0;
+}
+
+.chi-siamo-text { 
+    color: #24292d;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+/*** Prodotti ***/
+.prodotti-section {
+    background: url('../Immagini/prodotti-img.PNG') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.prodotti-section .h-100 {
+    padding: 120px 0;
+}
+
+.prodotti-text { 
+    color: #24292d;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 400;
+
+}
+
+/*** Shop ***/
+.shop-section {
+    background: url('../Immagini/shop-img.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.shop-section .h-100 {
+    padding: 120px 0;
+}
+
+.shop-text {
+    color: #ffffff;
+    font-size: 35px;
+    margin: auto;
+    font-weight: 500;
+
+}
+
+.button {
+    padding: 10px 10px 10px 10px;
+    border: 0px solid #dedede;
+    color: white;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    -webkit-transition: color 150ms ease-in-out;
+    transition: color 150ms ease-in-out;
+}
+
+.button:after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 0;
+    height: 100%;
+    background: white;
+    z-index: -1;
+    -webkit-transition: width 350ms ease-in-out;
+    transition: width 350ms ease-in-out;
+}
+
+.button:hover {
+    color: black;
+}
+
+.button:hover:after {
+    width: 110%;
+}  
+
+/*** Contatti ***/
+.contatti-text { 
+    color: #24292d;
+    font-size: 20px;
+    text-align: center;
+}
+
+.person {
+    box-shadow: 5px 5px 2px #dedede;
+    padding: 10px 10px 10px 10px;
+}
+
+.person .name {
+    text-decoration: solid;
+}
+
+/******* Responsive *******/
+@media(max-width:991px) {
+
+}
+
+@media(max-width:575px) {
+    .chi-siamo-section {
+        background: url('../Immagini/chi-siamo-mobile.PNG') no-repeat center center fixed;
+    }
+
+    .prodotti-section {
+        background: url('../Immagini/prodotti-img-mobile.PNG') no-repeat center center fixed;
+    }
+}

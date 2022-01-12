@@ -1,0 +1,200 @@
+.shop-section {
+    background: url('../Immagini/shopPage-img2.png') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-bottom: 10px;
+}
+
+.card{
+  position: relative;
+  margin: auto;
+  margin-top: 100px;
+
+  background-color: #96ddf7;
+  height: 420px;
+  width: 320px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card::before{
+  content: '';
+  position: absolute;
+  top:-50%;
+  width:100%;
+  height: 100%;
+  background-color: black;
+  transform: skewY(350deg);
+  transition: 0.5s;
+}
+
+.card:hover::before{
+  transform: skewY(390deg);
+  top:-70%;
+}
+
+.card .cardImg{
+  position: relative;
+  display: flex;
+  padding-top:-20%;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+  z-index: 1;
+}
+
+.card .cardImg img{
+  max-width: 85%;
+  transition: 0.5s;
+}
+
+.card:hover .cardImg img{
+  max-width: 65%;
+  transition: 0.5s;
+}
+
+.card .cardContent{
+  position:relative;
+  display: flex;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.card .cardContent h2{
+  color: black;
+  font-size: 18px;
+}
+
+.card .cardContent .price{
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.card .cardContent .quantCont{
+  display: flex;
+  margin: auto;
+}
+
+.card .cardContent .cardQuant{
+  margin-left: 10px;
+  width: fit-content;
+  background-color: transparent;
+  border-radius: 5px;
+
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+.card .cardContent .cardQuant:focus{
+  border: 2px solid #555;
+}
+
+
+.card .cardContent .buy{
+  position: relative;
+  top: 20px;
+  opacity: 0;
+  transition: 0.5s;
+  width: fit-content;
+  margin: auto;
+  margin-top: 15px;
+  color: white;
+  font-size: 15px;
+  padding: 10px 30px;
+  background-color: black;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.card:hover .cardContent .buy{
+  top:0;
+  opacity: 1;
+}
+
+.card .cardContent .buy:hover{
+  opacity: 0.8;
+  transition: 0.1s;
+}
+
+.colorCont {
+  padding: 20px;
+
+  position: relative;
+  display: inline-block;
+}
+
+/* Hide the browser's default radio button */
+.colorCont input {
+  position: absolute;
+  top:0px;
+  opacity:0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.product-colors .arancione {
+  background-color: rgb(233, 137, 59);
+}
+
+.product-colors .azzurro {
+  background-color: rgb(160, 231, 249);
+}
+
+.product-colors .giallo {
+  background-color: rgb(253, 251, 91);
+}
+
+.product-colors .rosa {
+  background-color: rgb(254, 138, 172);
+}
+
+.product-colors .verde {
+  background-color: rgb(102, 163, 59);
+}
+
+/* When the radio button is checked, add a blue background */
+.colorCont input:checked ~ .checkmark {
+  border: 3px solid black;  
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: inline-block;
+}
+
+#gel{
+  background-color: #dce6ea;
+}
+
+#bundle{
+  background-color: #f0ece4;
+}
+
+/* ausiliarie */
+.add-padding-top{
+  padding-top: 10px;
+}
