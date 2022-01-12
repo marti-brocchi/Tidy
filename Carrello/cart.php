@@ -167,7 +167,6 @@
   </section>
 
   <style>
-
     /* aggiusto la pagina per tutti i dispositivi */
 
     .cart {

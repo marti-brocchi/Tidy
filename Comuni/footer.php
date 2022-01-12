@@ -4,8 +4,8 @@
             <div class="footer-item">
                 <h2>Copyright</h2>
                 <div class="footer-text">
-                    <p>Martina Brocchi<br>Lorenzo La Corte<br>sito web<br><br>
-                    Tizia<br>immagini</p>
+                    <p>Martina Brocchi<br>Lorenzo La Corte<br>Sito web<br><br>
+                    Chiara Morando<br>Ginevra Mignano<br>Design del prodotto</p>
                 </div>
             </div>
             <div class="footer-item">
