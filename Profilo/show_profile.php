@@ -76,7 +76,38 @@
                     </div>
 
                     <div class="profile-item align-content-center">
-                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel tempore obcaecati ea sequi voluptatibus illum nihil inventore cupiditate iusto, enim voluptas, beatae, quod explicabo. Magnam sint delectus repellendus excepturi suscipit. </p>
+                        <fieldset class="fieldset">
+
+                            <label for="firstname">Nome</label> <br>
+                            <input class="user-data" type="text" id="firstname" name="firstname" placeholder="Inserisci nome" required
+                            <?php // visualizzo il valore già esistente
+                                echo "value='".$row["firstname"]."'";
+                            ?> > <br><br>
+                       
+                            <label for="lastname">Cognome</label> <br>
+                            <input class="user-data" type="text" id="lastname" name="lastname" placeholder="Inserisci cognome" required
+                            <?php // visualizzo il valore già esistente
+                                echo "value='".$row["lastname"]."'";
+                            ?> > <br><br>
+                           
+                            <label for="email">E-Mail</label> <br>
+                            <input class="user-data" type="email" id="email" name="email" placeholder="Inserisci email" required readonly
+                            <?php // visualizzo il valore già esistente
+                                echo "value='".$row["email"]."'";
+                            ?> > <br><br>
+                          
+                            <label for="dataDiNascita">Data di Nascita</label> <br>
+                            <input class="user-data" type="date" id="dataDiNascita" name="dataDiNascita"
+                            <?php // visualizzo il valore già esistente
+                                echo "value='".$row["dataDiNascita"]."'";
+                            ?> > <br><br>
+                          
+                            <label for="telefono">Telefono</label> <br>
+                            <input class="user-data" type="tel" id="telefono" name="telefono" placeholder="Inserisci numero di telefono"
+                            <?php // visualizzo il valore già esistente
+                                echo "value='".$row["telefono"]."'";
+                            ?> >
+                        </fieldset>
                     </div>
                     <div class="profile-item align-content-center">
                         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel tempore obcaecati ea sequi voluptatibus illum nihil inventore cupiditate iusto, enim voluptas, beatae, quod explicabo. Magnam sint delectus repellendus excepturi suscipit. </p>

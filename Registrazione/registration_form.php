@@ -20,25 +20,25 @@
                     
                         <i class="far fa-user"></i>
                         <label for="firstname">Nome</label> <br>
-                        <input type="text" id="firstname" name="firstname" placeholder="Inserisci nome" required> <br><br>
+                        <input class="user-data" type="text" id="firstname" name="firstname" placeholder="Inserisci nome" required> <br><br>
 
                         <i class="far fa-user"></i>
                         <label for="lastname">Cognome</label> <br>
-                        <input type="text" id="lastname" name="lastname" placeholder="Inserisci cognome" required> <br><br>
+                        <input class="user-data" type="text" id="lastname" name="lastname" placeholder="Inserisci cognome" required> <br><br>
 
                         <i class="far fa-envelope"></i>
                         <label for="email">E-mail</label> <br>
-                        <input type="email" id="email" name="email" placeholder="Inserisci email" required>
+                        <input class="user-data" type="email" id="email" name="email" placeholder="Inserisci email" required>
                         <div id="mesEmail"></div><br>
 
                         <i class="fas fa-key"></i>
                         <label for="pass">Password</label> <br>
-                        <input type="password" id="pass" name="pass" placeholder="Inserisci password" required> 
+                        <input class="user-data" type="password" id="pass" name="pass" placeholder="Inserisci password" required> 
                         <div id="mesPassRegistration"></div><br>
 
                         <i class="fas fa-key"></i>
                         <label for="confirm">Conferma password</label> <br>
-                        <input type="password" id="confirm" name="confirm" placeholder="Inserisci password" required>
+                        <input class="user-data" type="password" id="confirm" name="confirm" placeholder="Inserisci password" required>
                         <div id="mesConfRegistration"></div>
                     </fieldset>
                     <br><br>

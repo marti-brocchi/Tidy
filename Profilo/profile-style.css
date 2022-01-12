@@ -14,6 +14,7 @@
     padding: 0 20px;
     text-align: center;
     display: inline-block;
+    vertical-align: middle;
 }
 
 .form-check-inline {

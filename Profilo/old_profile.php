@@ -34,7 +34,7 @@
     }
 
     // creo un array associativo
-    $user_data = mysqli_fetch_assoc($result);
+    $row = mysqli_fetch_assoc($result);
   ?>
 
 <div class="profileContainer rounded bg-white mt-5 mb-5"> 
@@ -44,30 +44,30 @@
           <div class="d-flex flex-column align-items-center text-center p-3 py-5">
             <img class="rounded-circle mt-5" alt="immagine di profilo" id="ImmagineProfilo" src=
             <?php 
-              if($user_data["sesso"] == "maschio") echo "https://cdn2.iconfinder.com/data/icons/lil-silhouettes/2176/person13-1024.png";
-              else if($user_data["sesso"] == "femmina") echo "https://cdn2.iconfinder.com/data/icons/lil-silhouettes/2176/person12-1024.png";
+              if($row["sesso"] == "maschio") echo "https://cdn2.iconfinder.com/data/icons/lil-silhouettes/2176/person13-1024.png";
+              else if($row["sesso"] == "femmina") echo "https://cdn2.iconfinder.com/data/icons/lil-silhouettes/2176/person12-1024.png";
               else echo "https://cdn4.iconfinder.com/data/icons/light-ui-icon-set-1/130/avatar_2-1024.png";
             ?>>
-            <?php echo "<span class=\"font-weight-bold\">".$user_data["firstname"]." ".$_SESSION["lastname"]."</span>"  ?>
-            <?php echo "<span class=\"text-black-50\">".$user_data["email"]."</span>" ?>
+            <?php echo "<span class=\"font-weight-bold\">".$row["firstname"]." ".$_SESSION["lastname"]."</span>"  ?>
+            <?php echo "<span class=\"text-black-50\">".$row["email"]."</span>" ?>
             <br>
             <fieldset id="sceltaSesso">
               <legend hidden> <b> Sesso: </b> </legend>
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="sesso" id="maschio" value="maschio"
-                  <?php if($user_data["sesso"] == "maschio") echo "checked"?>>
+                  <?php if($row["sesso"] == "maschio") echo "checked"?>>
                   <label class="form-check-label" for="inlineRadio1">M</label>
                   <i class="fa fa-male" aria-hidden="true"></i>
                 </div>
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="sesso" id="femmina" value="femmina"
-                  <?php if($user_data["sesso"] == "femmina") echo "checked"?>>
+                  <?php if($row["sesso"] == "femmina") echo "checked"?>>
                   <label class="form-check-label" for="inlineRadio2">F</label>
                   <i class="fa fa-female" aria-hidden="true"></i>
                 </div>
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="sesso" id="altro" value=""
-                  <?php if($user_data["sesso"] == "") echo "checked"?>>
+                  <?php if($row["sesso"] == "") echo "checked"?>>
                   <label class="form-check-label" for="inlineRadio1">Altro</label>
                 </div>
                 <div class="mt-5 text-center">
@@ -86,35 +86,35 @@
                   <label class="labels">Nome</label>
                   <input type="text" id="firstname" name="firstname" placeholder="Inserisci nome" required
                   <?php // visualizzo il valore già esistente
-                    echo "value='".$user_data["firstname"]."'";
+                    echo "value='".$row["firstname"]."'";
                   ?> > <!-- chiusura del input -->
                 </div>
                 <div class="col-md-12">
                   <label class="labels">Cognome</label>
                   <input type="text" id="lastname" name="lastname" placeholder="Inserisci cognome" required
                   <?php // visualizzo il valore già esistente
-                    echo "value='".$user_data["lastname"]."'";
+                    echo "value='".$row["lastname"]."'";
                   ?> > <!-- chiusura del input -->
                 </div>
                 <div class="col-md-12">
                   <label class="labels">E-Mail</label>
                   <input type="email" id="email" name="email" placeholder="Inserisci email" required readonly
                   <?php // visualizzo il valore già esistente
-                    echo "value='".$user_data["email"]."'";
+                    echo "value='".$row["email"]."'";
                   ?> > <!-- chiusura del input -->
                 </div>
                 <div class="col-md-12">
                   <label class="labels">Data di Nascita</label>
                   <input type="date" id="dataDiNascita" name="dataDiNascita" class="form-control"
                   <?php // visualizzo il valore già esistente
-                    echo "value='".$user_data["dataDiNascita"]."'";
+                    echo "value='".$row["dataDiNascita"]."'";
                   ?> >
                 </div>          
                 <div class="col-md-12">
                   <label class="labels">Telefono</label>
                   <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="Inserisci numero di telefono"
                   <?php // visualizzo il valore già esistente
-                    echo "value='".$user_data["telefono"]."'";
+                    echo "value='".$row["telefono"]."'";
                   ?> >
                 </div>
               </fieldset>
@@ -132,35 +132,35 @@
                   <label class="labels">Stato</label>
                   <input type="text" id="stato" name="stato" class="form-control" placeholder="Inserisci stato"
                   <?php // visualizzo il valore già esistente
-                    echo "value='".$user_data["stato"]."'";
+                    echo "value='".$row["stato"]."'";
                   ?> >
                 </div>
                 <div class="col-md-12">
                   <label class="labels">Provincia</label>
                   <input type="text" id="provincia" name="provincia" class="form-control" placeholder="Inserisci provincia"
                   <?php // visualizzo il valore già esistente
-                    echo "value='".$user_data["provincia"]."'";
+                    echo "value='".$row["provincia"]."'";
                   ?> >
                 </div>
                 <div class="col-md-12">
                   <label class="labels">Città</label>
                   <input type="text" id="citta" name="citta" class="form-control" placeholder="Inserisci città"
                   <?php // visualizzo il valore già esistente
-                    echo "value='".$user_data["citta"]."'";
+                    echo "value='".$row["citta"]."'";
                   ?> >
                 </div>
                 <div class="col-md-12">
                   <label class="labels">Indirizzo</label>
                   <input type="text" id="indirizzo" name="indirizzo" class="form-control" placeholder="Inserisci indirizzo"
                   <?php // visualizzo il valore già esistente
-                    echo "value='".$user_data["indirizzo"]."'";
+                    echo "value='".$row["indirizzo"]."'";
                   ?> >
                 </div>
                 <div class="col-md-12">
                   <label class="labels">CAP</label>
                   <input type="text" id="CAP" name="CAP" class="form-control" placeholder="Inserisci codice postale"
                   <?php // visualizzo il valore già esistente
-                    echo "value='".$user_data["CAP"]."'";
+                    echo "value='".$row["CAP"]."'";
                   ?> >
                 </div>
               </fieldset>
