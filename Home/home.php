@@ -83,13 +83,13 @@
                     <div class="contatti-text">
                         <h1>Contatti</h1>
                     </div>
-                    <div class="person">
-                        <img src="../Immagini/wanda.jpg" alt="Martina">
-                        <div class="name"> Martina Brocchi </div>
+                    <div class="contatti-text">
+                        <div><b>Martina Brocchi</b></div>
+                        <a href="mailto:s4803890@studenti.unige.it">s4803890@studenti.unige.it</a>
                     </div>
-                    <div class="person">
-                        <img src="../Immagini/cosmo.jpg" alt="Lorenzo">
-                        <div class="name"> Lorenzo La Corte </div>
+                    <div class="contatti-text">
+                        <div><b>Lorenzo La Corte</b></div>
+                        <a href="mailto:s4784539@studenti.unige.it">s4784539@studenti.unige.it</a>
                     </div>
                 </div>
             </div>

@@ -17,6 +17,10 @@
     vertical-align: middle;
 }
 
+.form {
+    width: 100%;
+}
+
 .form-check-inline {
     display: inline-block;
 }
@@ -27,17 +31,6 @@
 
 .password {
     padding-top: 40px;  
-}
-
-.button {
-    padding: 10px 10px 10px 10px;
-    border: 1px solid #dedede;
-    color: black;
-}
-
-a.button:hover {
-    background-color: #24292d;
-    color: #ffffff;
 }
 
 @media(max-width:991px) {

@@ -94,7 +94,7 @@
 
               // acquisici il prodotto mediante il codice cod
               // SELECT * FROM prodotti WHERE cod = $product_i
-              $stmt = mysqli_prepare($con, "SELECT * FROM prodotti WHERE cod =?");
+              $stmt = mysqli_prepare($con, "SELECT * FROM prodotti WHERE cod=?");
               mysqli_stmt_bind_param($stmt, 's', $product_i);
               
               mysqli_stmt_execute($stmt);
@@ -104,12 +104,12 @@
       
               // controlla che il risultato sia di una sola riga
               if (mysqli_num_rows($res)==0) {
-                  error_log($dateTime." -- Carrello -- Error: nessuna riga associata al codice:".$product_i."\n", 3, $_SERVER["DOCUMENT_ROOT"]."../log.txt");
+                  error_log($dateTime." -- Carrello -- Error: nessuna riga associata al codice:".$product_i."\n", 3, "../../log.txt");
                   header("Location: ../Home/home.php");
                   exit();
               }
               if (mysqli_num_rows($res)>1) {
-                  error_log($dateTime." -- Carrello -- Error: restituite più righe associate ad un codice\n", 3, $_SERVER["DOCUMENT_ROOT"]."../log.txt");
+                  error_log($dateTime." -- Carrello -- Error: restituite più righe associate ad un codice\n", 3, "../../log.txt");
                   header("Location: ../Home/home.php");
                   exit();
               }
@@ -158,7 +158,7 @@
               <div class="total-amount"><?php echo $costoTotale."&#128;"; ?></div>
             </div>
 
-            <a href="checkout.php" class="button">Checkout</button>
+            <a href="checkout.php" class="button">Checkout</a>
           </div>
       
         </div>

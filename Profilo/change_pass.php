@@ -17,20 +17,20 @@
     }
 
 	if(empty($_POST)) {
-        error_log($dateTime." -- Cambio password -- Errore: dati non ricevuti\n", 3, $_SERVER["DOCUMENT_ROOT"]."/../log.txt");
+        error_log($dateTime." -- Cambio password -- Errore: dati non ricevuti\n", 3, "../../log.txt");
         header("Location: change_password.php");	
         exit();
     }
 
     foreach ($_POST as $val) {
 		if (!isset($val)) {
-            error_log($dateTime." -- Cambio password -- Errore: compilare tutti i campi richiesti\n", 3, $_SERVER["DOCUMENT_ROOT"]."../log.txt");
+            error_log($dateTime." -- Cambio password -- Errore: compilare tutti i campi richiesti\n", 3, "../../log.txt");
             header("Location: change_password.php");	
             exit();
         }
 
         if (empty($val)){
-            error_log($dateTime." -- Cambio password -- Errore: non possono essere presenti campi vuoti\n", 3, $_SERVER["DOCUMENT_ROOT"]."../log.txt");
+            error_log($dateTime." -- Cambio password -- Errore: non possono essere presenti campi vuoti\n", 3, "../../log.txt");
             header("Location: change_password.php");
             exit();
         }
@@ -43,7 +43,7 @@
     //Effettuo nuovamente controllo password coincidenti, già fatto lato client con api-fetch
     //Controllo ripetuto in caso di accesso diretto a file change_pass.php (senza passare dal form)
 	if (strcmp($password, $confirm)!=0) {
-		error_log($dateTime." -- Cambio password -- Errore: le password inserite non coincidono\n", 3, $_SERVER["DOCUMENT_ROOT"]."../log.txt");
+		error_log($dateTime." -- Cambio password -- Errore: le password inserite non coincidono\n", 3, "../../log.txt");
         header("Location: change_password.php");
         exit();
 	}
@@ -60,14 +60,14 @@
 
     //Controllo che il risultato della query sia una sola riga
     if (mysqli_num_rows($res)!=1) {
-        error_log($dateTime." -- Cambio password -- Errore: restituite più righe associate ad una mail\n", 3, $_SERVER["DOCUMENT_ROOT"]."../log.txt");
+        error_log($dateTime." -- Cambio password -- Errore: restituite più righe associate ad una mail\n", 3, "../../log.txt");
         header("Location: change_password.php");
         exit();
     }
 
     //Controllo che la vecchia password sia corretta
     if(!password_verify($oldPassword, $row["pass"])) {
-        error_log($dateTime." -- Cambio password -- Errore: vecchia password non corretta\n", 3, $_SERVER["DOCUMENT_ROOT"]."../log.txt");
+        error_log($dateTime." -- Cambio password -- Errore: vecchia password non corretta\n", 3, "../../log.txt");
         header("Location: change_password.php");
         exit();
     }
@@ -81,7 +81,7 @@
     mysqli_stmt_close($newstmt);
 
     if (mysqli_affected_rows($con)==0){
-        error_log($dateTime." -- Cambio password -- Errore: update non eseguito\n", 3, $_SERVER["DOCUMENT_ROOT"]."../log.txt");
+        error_log($dateTime." -- Cambio password -- Errore: update non eseguito\n", 3, "../../log.txt");
         header("Location: change_password.php");
         exit();
     }

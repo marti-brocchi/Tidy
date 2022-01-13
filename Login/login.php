@@ -19,20 +19,20 @@
 	session_start();
 
     if(empty($_POST)) {
-        error_log($dateTime." -- Login -- Errore: dati non ricevuti\n", 3, $_SERVER["DOCUMENT_ROOT"]."/../log.txt");
+        error_log($dateTime." -- Login -- Errore: dati non ricevuti\n", 3, "../../log.txt");
         header("Location: login_form.php");	
         exit();
     }
 
     foreach ($_POST as $val) {
 		if (!isset($val)) {
-            error_log($dateTime." -- Login -- Errore: compilare tutti i campi richiesti\n", 3, $_SERVER["DOCUMENT_ROOT"]."../log.txt");
+            error_log($dateTime." -- Login -- Errore: compilare tutti i campi richiesti\n", 3, "../../log.txt");
             header("Location: login_form.php");	
             exit();
         }
 
         if (empty($val)){
-            error_log($dateTime." -- Login -- Errore: non possono essere presenti campi vuoti\n", 3, $_SERVER["DOCUMENT_ROOT"]."../log.txt");
+            error_log($dateTime." -- Login -- Errore: non possono essere presenti campi vuoti\n", 3, "../../log.txt");
             header("Location: login_form.php");
             exit();
         }
@@ -40,7 +40,7 @@
 
     $email = test_input($_POST["email"]);
 	if (!($email = filter_var($email, FILTER_VALIDATE_EMAIL))) {
-		error_log($dateTime." -- Login -- Error: formato email non valido\n", 3, $_SERVER["DOCUMENT_ROOT"]."../log.txt");
+		error_log($dateTime." -- Login -- Error: formato email non valido\n", 3, "../../log.txt");
         header("Location: login_form.php");
         exit();
 	}
@@ -59,14 +59,14 @@
     //Controllo ripetuto in caso di accesso diretto a file login.php (senza passare dal form)
     //Controllo che il risultato della query sia una sola riga
     if (mysqli_num_rows($res)!=1) {
-        error_log($dateTime." -- Login -- Error: restituite più righe associate ad una mail\n", 3, $_SERVER["DOCUMENT_ROOT"]."../log.txt");
+        error_log($dateTime." -- Login -- Error: restituite più righe associate ad una mail\n", 3, "../../log.txt");
         header("Location: login_form.php");
         exit();
     }
 
 	//Controllo che la password sia corretta
 	if(!password_verify($password, $row["pass"])) {
-		error_log($dateTime." -- Login -- Error: email o password non corretti\n", 3, $_SERVER["DOCUMENT_ROOT"]."../log.txt");
+		error_log($dateTime." -- Login -- Error: email o password non corretti\n", 3, "../../log.txt");
         header("Location: login_form.php");
         exit();
     }

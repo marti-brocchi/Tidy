@@ -29,14 +29,14 @@
                             <legend class="legend"><h1> Login </h1></legend>
                             <i class="far fa-envelope"></i>
                             <label for="email">E-mail</label> <br>
-                            <input type="email" id="email" name="email" placeholder="Inserisci email" required> <br><br>
+                            <input class="user-data" type="email" id="email" name="email" placeholder="Inserisci email" required> <br><br>
 
                             <i class="fas fa-key"></i>
                             <label for="pass">Password</label> <br>
-                            <input type="password" id="pass" name="pass" placeholder="Inserisci password" required> <br><br>
+                            <input class="user-data" type="password" id="pass" name="pass" placeholder="Inserisci password" required> <br><br>
                         </fieldset>
                         <br><br>
-                        <input type="submit" name="submit" value="Invia">
+                        <input class="button" type="submit" name="submit" value="Invia">
                     </form>
                 </div>
             </div>

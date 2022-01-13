@@ -21,8 +21,8 @@
                     <li><a href="../Home/home.php#home">Home</a></li>
                     <li><a href="../Home/home.php#chi-siamo">Chi siamo</a></li>
                     <li><a href="../Home/home.php#prodotti">Prodotti</a></li>
-                    <li><a href="../Home/home.php#shop">Shop</a></li>
                     <li><a href="../Home/home.php#contatti">Contatti</a></li>
+                    <li><a href="../Shop/shop.php">Shop</a></li>
                 </ul>
             </nav>
             <nav class="nav hide">

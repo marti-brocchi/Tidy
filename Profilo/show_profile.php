@@ -28,13 +28,26 @@
         mysqli_stmt_close($stmt);
 
         if (mysqli_num_rows($res)==0) {
-            error_log($dateTime." -- Profilo -- Error: nessuna riga associata alla mail\n", 3, $_SERVER["DOCUMENT_ROOT"]."../log.txt");
+            error_log($dateTime." -- Profilo -- Error: nessuna riga associata alla mail\n", 3, "../../log.txt");
             header("Location: ../Login/login_form.php");
             exit();
         }
 
         if (mysqli_num_rows($res)>1) {
-            error_log($dateTime." -- Profilo -- Error: restituite più righe associate ad una mail\n", 3, $_SERVER["DOCUMENT_ROOT"]."../log.txt");
+            error_log($dateTime." -- Profilo -- Error: restituite più righe associate ad una mail\n", 3, "../../log.txt");
+            header("Location: ../Login/login_form.php");
+            exit();
+        }
+
+        $stmt2 = mysqli_prepare($con, "SELECT * FROM info_utenti WHERE id=?");
+        mysqli_stmt_bind_param($stmt2, 'i', $row["id"]);
+        mysqli_stmt_execute($stmt2);
+        $res2 = mysqli_stmt_get_result($stmt2);
+        $row2 = mysqli_fetch_assoc($res2); 
+        mysqli_stmt_close($stmt2);
+
+        if (mysqli_num_rows($res2)>1) {
+            error_log($dateTime." -- Profilo -- Error: restituite più righe associate ad un utente\n", 3, "../../log.txt");
             header("Location: ../Login/login_form.php");
             exit();
         }
@@ -47,8 +60,8 @@
                     <div class="profile-item align-content-center">
                         <img class="profile-photo" alt="immagine di profilo" id="ImmagineProfilo" src=
                             <?php 
-                            if($row["sesso"] == "maschio") echo "https://cdn2.iconfinder.com/data/icons/lil-silhouettes/2176/person13-1024.png";
-                            else if($row["sesso"] == "femmina") echo "https://cdn2.iconfinder.com/data/icons/lil-silhouettes/2176/person12-1024.png";
+                            if(isset($row2) and $row["sesso"] == "maschio") echo "https://cdn2.iconfinder.com/data/icons/lil-silhouettes/2176/person13-1024.png";
+                            else if(isset($row2) and $row["sesso"] == "femmina") echo "https://cdn2.iconfinder.com/data/icons/lil-silhouettes/2176/person12-1024.png";
                             else echo "https://cdn4.iconfinder.com/data/icons/light-ui-icon-set-1/130/avatar_2-1024.png";
                             ?>
                         >
@@ -59,13 +72,13 @@
                         <fieldset class="fieldset" id="sceltaSesso">
                             <legend> <h3> Sesso </h3> </legend>
                             <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="sesso" id="maschio" value="maschio" <?php if($row["sesso"] == "maschio") echo "checked"?> >
+                            <input class="form-check-input" type="radio" name="sesso" id="maschio" value="maschio" <?php if(isset($row2) and $row2["sesso"] == "maschio") echo "checked"?> >
                             <label class="form-check-label" for="maschio">M</label>
                             
-                            <input class="form-check-input" type="radio" name="sesso" id="femmina" value="femmina" <?php if($row["sesso"] == "femmina") echo "checked"?>>
+                            <input class="form-check-input" type="radio" name="sesso" id="femmina" value="femmina" <?php if(isset($row2) and $row2["sesso"] == "femmina") echo "checked"?>>
                             <label class="form-check-label" for="femmina">F</label>
 
-                            <input class="form-check-input" type="radio" name="sesso" id="altro" value="" <?php if($row["sesso"] == "") echo "checked"?>>
+                            <input class="form-check-input" type="radio" name="sesso" id="altro" value="" <?php echo "checked"?>>
                             <label class="form-check-label" for="altro">Altro</label>
                             </div>
                         </fieldset>
@@ -99,20 +112,63 @@
                             <label for="dataDiNascita">Data di Nascita</label> <br>
                             <input class="user-data" type="date" id="dataDiNascita" name="dataDiNascita"
                             <?php // visualizzo il valore già esistente
-                                echo "value='".$row["dataDiNascita"]."'";
+                                if (isset($row2))
+                                    echo "value='".$row2["dataDiNascita"]."'";
                             ?> > <br><br>
                           
                             <label for="telefono">Telefono</label> <br>
                             <input class="user-data" type="tel" id="telefono" name="telefono" placeholder="Inserisci numero di telefono"
                             <?php // visualizzo il valore già esistente
-                                echo "value='".$row["telefono"]."'";
+                                if (isset($row2))
+                                    echo "value='".$row2["telefono"]."'";
                             ?> >
                         </fieldset>
                     </div>
+
                     <div class="profile-item align-content-center">
-                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel tempore obcaecati ea sequi voluptatibus illum nihil inventore cupiditate iusto, enim voluptas, beatae, quod explicabo. Magnam sint delectus repellendus excepturi suscipit. </p>
+                        <fieldset class="fieldset">
+                           
+                            <label for="stato">Stato</label> <br>
+                            <input class="user-data" type="text" id="stato" name="stato" placeholder="Inserisci stato"
+                            <?php // visualizzo il valore già esistente
+                                if (isset($row2))
+                                    echo "value='".$row2["stato"]."'";
+                            ?> > <br><br>
+                           
+                            <label for="provincia">Provincia</label> <br>
+                            <input class="user-data" type="text" id="provincia" name="provincia" placeholder="Inserisci provincia"
+                            <?php // visualizzo il valore già esistente
+                                if (isset($row2))
+                                    echo "value='".$row2["provincia"]."'";
+                            ?> > <br><br>
+                           
+                            <label for="citta">Città</label> <br>
+                            <input class="user-data" type="text" id="citta" name="citta" placeholder="Inserisci città"
+                            <?php // visualizzo il valore già esistente
+                                if (isset($row2))
+                                    echo "value='".$row2["citta"]."'";
+                            ?> > <br><br>
+                           
+                            <label for="indirizzo">Indirizzo</label> <br>
+                            <input class="user-data" type="text" id="indirizzo" name="indirizzo" placeholder="Inserisci indirizzo"
+                            <?php // visualizzo il valore già esistente
+                                if (isset($row2))
+                                    echo "value='".$row2["indirizzo"]."'";
+                            ?> > <br><br>
+                            
+                            <label for="CAP">CAP</label> <br>
+                            <input class="user-data" type="text" id="CAP" name="CAP" placeholder="Inserisci codice postale"
+                            <?php // visualizzo il valore già esistente
+                                if (isset($row2))
+                                    echo "value='".$row2["CAP"]."'";
+                            ?> >
+                            </div>
+                        </fieldset>                    
                     </div>
-                    <input type="submit" name="submit" value="Salva profilo">
+                    
+                    <div class="align-content-center">
+                        <input class="button" type="submit" name="submit" value="Salva profilo">
+                    </div>
                 </form>
             </div>
         </div>

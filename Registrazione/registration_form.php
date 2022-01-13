@@ -14,7 +14,7 @@
     <section class="register" id="register">
         <div class="container">
             <div class="row h-100 align-items-center align-content-center">
-                <form class="form" action="registration.php" method="post">
+                <form action="registration.php" method="post">
                     <fieldset class="fieldset">
                         <legend class="legend"> <h1>Registrati </h1> </legend>
                     
@@ -41,8 +41,8 @@
                         <input class="user-data" type="password" id="confirm" name="confirm" placeholder="Inserisci password" required>
                         <div id="mesConfRegistration"></div>
                     </fieldset>
-                    <br><br>
-                    <input type="submit" id="submitRegistration" name="submit" value="Invia">
+                    <br>
+                    <input class="button" type="submit" id="submitRegistration" name="submit" value="Invia">
                 </form>
             </div>
         </div>
