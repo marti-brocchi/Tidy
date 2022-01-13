@@ -62,11 +62,12 @@
                                         </select>
                                     </div>
 
-                                    <input type="submit" name="btnBracelet" class="buy" value="Aggiungi al Carrello">
+                                    <input type="submit" name="btnBraceletRedirect" class="goTo" value="Vai al Prodotto">
+                                    <input type="submit" name="btnBracelet" class="buy" value="Acquista Subito">
                                 </div>
                             </div>
 
-                            <div class="card" id="gel">
+                            <div class="card max-width-gel" id="gel">
                                 <div class="cardImg">
                                     <img src="../Immagini/ImmaginiShop/gel.png" id="bracImg" alt="gel igenizzante">
                                 </div>
@@ -85,11 +86,12 @@
                                         </select>
                                     </div>
 
-                                    <input type="submit" name="btnGel" class="buy" value="Aggiungi al Carrello">
+                                    <a href="gel.php" class="goTo"> Vai al Prodotto </a>
+                                    <input type="submit" name="btnGel" class="buy" value="Acquista Subito">
                                 </div>
                             </div>
 
-                            <div class="card" id="bundle">
+                            <div class="card max-width-bundle" id="bundle">
                                 <div class="cardImg">
                                     <img src="../Immagini/ImmaginiShop/bundle.png" id="bracImg" alt="bundle 5 bracciali e 5 gel igenizzanti">
                                 </div>
@@ -108,7 +110,8 @@
                                         </select>
                                     </div>
 
-                                    <input type="submit" name="btnBundle" class="buy" value="Aggiungi al Carrello">
+                                    <a href="bundle.php" class="goTo"> Vai al Prodotto </a>
+                                    <input type="submit" name="btnBundle" class="buy" value="Acquista Subito">
                                 </div>
                             </div>
                     </div>

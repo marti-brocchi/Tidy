@@ -1,5 +1,5 @@
 .shop-section {
-    background: url('../Immagini/shopPage-img2.PNG') no-repeat center center fixed; 
+    background: url('../Immagini/shopPage-img2.png') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -51,9 +51,20 @@
 }
 
 .card:hover .cardImg img{
+  max-width: 55%;
+  transition: 0.5s;
+}
+
+.max-width-gel:hover .cardImg img{
   max-width: 65%;
   transition: 0.5s;
 }
+
+.max-width-bundle:hover .cardImg img{
+  max-width: 59%;
+  transition: 0.5s;
+}
+
 
 .card .cardContent{
   position:relative;
@@ -105,12 +116,30 @@
   transition: 0.5s;
   width: fit-content;
   margin: auto;
-  margin-top: 15px;
+  margin-top: 5px;
   color: white;
   font-size: 15px;
-  padding: 10px 30px;
-  background-color: black;
+  padding: 8px 30px;
+  background-color: #000000;
   border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.card .cardContent .goTo{
+  position: relative;
+  top: 20px;
+  opacity: 0;
+  transition: 0.5s;
+  width: fit-content;
+  margin: auto;
+  margin-top: 15px;
+  color: black;
+  font-size: 15px;
+  padding: 8px 25px;
+  background-color: #0000000e;
+  border-radius: 20px;
+  border: 1px solid black;
   cursor: pointer;
 }
 
@@ -119,7 +148,17 @@
   opacity: 1;
 }
 
+.card:hover .cardContent .goTo{
+  top:0;
+  opacity: 1;
+}
+
 .card .cardContent .buy:hover{
+  opacity: 0.8;
+  transition: 0.1s;
+}
+
+.card:hover .cardContent .goTo:hover{
   opacity: 0.8;
   transition: 0.1s;
 }
