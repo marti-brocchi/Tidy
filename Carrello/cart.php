@@ -1,4 +1,11 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+if(isset($_POST["btnBraceletRedirect"])) // redirigo alla pagina del bracciale
+{
+  header("Location: bracelet.php?colore=".$_POST["colore"]);
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="it">
