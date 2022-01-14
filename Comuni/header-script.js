@@ -24,3 +24,14 @@ for (let i=0; i<link.length; i++) {
         checkbox.checked = false;
     });
 }
+
+//Gestione searchbar
+var search = document.getElementById("search-icon");
+var searchbarForm = document.getElementById("searchbar-form");
+
+search.addEventListener('click', function(event) {
+    if (searchbarForm.className==='hide')
+        searchbarForm.className='show';
+    else
+        searchbarForm.className='hide';
+});

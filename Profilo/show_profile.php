@@ -142,11 +142,10 @@
                             <?php // visualizzo il valore già esistente
                                 echo "value='".$row["CAP"]."'";
                             ?> >
-                            </div>
                         </fieldset>                    
                     </div>
                     
-                    <div class="align-content-center">
+                    <div class="submit-item align-content-center">
                         <input class="button" type="submit" name="submit" value="Salva profilo">
                     </div>
                 </form>

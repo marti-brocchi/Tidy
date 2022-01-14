@@ -84,10 +84,12 @@
                         <h1>Contatti</h1>
                     </div>
                     <div class="contatti-text">
+                        <img src="../Immagini/Contatti/MartinaBrocchi.jpeg" alt="Foto di Martina Brocchi"><br><br>
                         <div><b>Martina Brocchi</b></div>
                         <a href="mailto:s4803890@studenti.unige.it">s4803890@studenti.unige.it</a>
                     </div>
                     <div class="contatti-text">
+                        <img src="../Immagini/Contatti/LorenzoLaCorte.jpg" alt="Foto di Lorenzo La Corte"><br><br>
                         <div><b>Lorenzo La Corte</b></div>
                         <a href="mailto:s4784539@studenti.unige.it">s4784539@studenti.unige.it</a>
                     </div>

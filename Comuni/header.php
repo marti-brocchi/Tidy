@@ -9,7 +9,10 @@
                 <span></span>
             </label>
             <div class="search">
-                <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/search--v1.png" alt="cerca"></img></a>
+                <form class="hide" id="searchbar-form" method="get" action="../Comuni/search.php">
+                    <input type="text" class="searchbar" id="searchbar" placeholder="Cerca un prodotto">
+                </form>
+                <a href="#" id="search-icon"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/search--v1.png" alt="cerca"></img></a>
                 <a href="../Carrello/cart.php"><img src="https://img.icons8.com/material-rounded/30/ffffff/shopping-cart-loaded.png" alt="carrello"></img></a>
             </div>
         </div>

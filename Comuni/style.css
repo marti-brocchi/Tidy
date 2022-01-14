@@ -156,9 +156,25 @@ img {
 }
 
 /***** Stile elementi menù completo *****/
+/*Gestione search bar*/
 .header .search img {
     padding: 0 15px;
     margin-left: 20px;
+}
+
+#searchbar-form.show {
+    display: inline;
+}
+
+#searchbar-form.hide {
+    display: none;
+}
+
+.header .searchbar {
+    padding: 6px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
 }
 
 .header .nav {
