@@ -90,7 +90,6 @@
         mysqli_stmt_bind_param($stmt, "issssssss", $row["id"], $dataDiNascita, $telefono, $stato, $provincia, $citta, $indirizzo, $cap, $sesso);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-        echo "sono nel posto sbagliato";
     }
 
     //Altrimenti se esiste aggiorno i valori
@@ -103,8 +102,9 @@
         mysqli_stmt_bind_param($stmt, "ssssssssi", $dataDiNascita, $telefono, $stato, $provincia, $citta, $indirizzo, $cap, $sesso, $row["id"]);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-        echo "sono nel posto giusto";
     }
+
+    echo "".mysqli_affected_rows($con);
 
     if (mysqli_affected_rows($con)!=1){
         error_log($dateTime." -- Profilo -- Error: update non eseguito\n", 3, "../../log.txt");
