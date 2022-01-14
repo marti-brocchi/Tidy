@@ -9,6 +9,9 @@
 <?php
 	include("../Comuni/DB_connect.php");
 
+    date_default_timezone_get();
+	$dateTime = date('m/d/Y h:i:s a', time());
+
 	function test_input($data) {
 		$data = trim($data);
 		$data = stripslashes($data);

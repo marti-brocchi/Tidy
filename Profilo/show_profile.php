@@ -17,10 +17,10 @@
         include("../Comuni/DB_connect.php");
 
         // se non c'è sessione, reindirizza al login
-        if (!(isset($_SESSION["login"]))) header("Location: ../Login/login_form.php");
+        if (!(isset($_SESSION["login"]))) { header("Location: ../Login/login_form.php"); exit(); }
 
         // costruisco una query che restituisce i dati associati all'utente con quella mail
-        $stmt = mysqli_prepare($con, "SELECT * FROM utenti WHERE email=?");
+        $stmt = mysqli_prepare($con, "SELECT * FROM utenti NATURAL LEFT JOIN info_utenti WHERE email=?");
         mysqli_stmt_bind_param($stmt, 's', $_SESSION["email"]);
         mysqli_stmt_execute($stmt);
         $res = mysqli_stmt_get_result($stmt);
@@ -38,19 +38,6 @@
             header("Location: ../Login/login_form.php");
             exit();
         }
-
-        $stmt2 = mysqli_prepare($con, "SELECT * FROM info_utenti WHERE id=?");
-        mysqli_stmt_bind_param($stmt2, 'i', $row["id"]);
-        mysqli_stmt_execute($stmt2);
-        $res2 = mysqli_stmt_get_result($stmt2);
-        $row2 = mysqli_fetch_assoc($res2); 
-        mysqli_stmt_close($stmt2);
-
-        if (mysqli_num_rows($res2)>1) {
-            error_log($dateTime." -- Profilo -- Error: restituite più righe associate ad un utente\n", 3, "../../log.txt");
-            header("Location: ../Login/login_form.php");
-            exit();
-        }
     ?>
 
     <section class="show-profile" id="show-profile">
@@ -60,8 +47,8 @@
                     <div class="profile-item align-content-center">
                         <img class="profile-photo" alt="immagine di profilo" id="ImmagineProfilo" src=
                             <?php 
-                            if(isset($row2) and $row["sesso"] == "maschio") echo "https://cdn2.iconfinder.com/data/icons/lil-silhouettes/2176/person13-1024.png";
-                            else if(isset($row2) and $row["sesso"] == "femmina") echo "https://cdn2.iconfinder.com/data/icons/lil-silhouettes/2176/person12-1024.png";
+                            if($row["sesso"] == "maschio") echo "https://cdn2.iconfinder.com/data/icons/lil-silhouettes/2176/person13-1024.png";
+                            else if($row["sesso"] == "femmina") echo "https://cdn2.iconfinder.com/data/icons/lil-silhouettes/2176/person12-1024.png";
                             else echo "https://cdn4.iconfinder.com/data/icons/light-ui-icon-set-1/130/avatar_2-1024.png";
                             ?>
                         >
@@ -72,13 +59,13 @@
                         <fieldset class="fieldset" id="sceltaSesso">
                             <legend> <h3> Sesso </h3> </legend>
                             <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="sesso" id="maschio" value="maschio" <?php if(isset($row2) and $row2["sesso"] == "maschio") echo "checked"?> >
+                            <input class="form-check-input" type="radio" name="sesso" id="maschio" value="maschio" <?php if($row["sesso"] == "maschio") echo "checked"?> >
                             <label class="form-check-label" for="maschio">M</label>
                             
-                            <input class="form-check-input" type="radio" name="sesso" id="femmina" value="femmina" <?php if(isset($row2) and $row2["sesso"] == "femmina") echo "checked"?>>
+                            <input class="form-check-input" type="radio" name="sesso" id="femmina" value="femmina" <?php if($row["sesso"] == "femmina") echo "checked"?>>
                             <label class="form-check-label" for="femmina">F</label>
 
-                            <input class="form-check-input" type="radio" name="sesso" id="altro" value="" <?php echo "checked"?>>
+                            <input class="form-check-input" type="radio" name="sesso" id="altro" value="" <?php if($row["sesso"] == "") echo "checked"?>>
                             <label class="form-check-label" for="altro">Altro</label>
                             </div>
                         </fieldset>
@@ -112,15 +99,13 @@
                             <label for="dataDiNascita">Data di Nascita</label> <br>
                             <input class="user-data" type="date" id="dataDiNascita" name="dataDiNascita"
                             <?php // visualizzo il valore già esistente
-                                if (isset($row2))
-                                    echo "value='".$row2["dataDiNascita"]."'";
+                                echo "value='".$row["dataDiNascita"]."'";
                             ?> > <br><br>
                           
                             <label for="telefono">Telefono</label> <br>
                             <input class="user-data" type="tel" id="telefono" name="telefono" placeholder="Inserisci numero di telefono"
                             <?php // visualizzo il valore già esistente
-                                if (isset($row2))
-                                    echo "value='".$row2["telefono"]."'";
+                                echo "value='".$row["telefono"]."'";
                             ?> >
                         </fieldset>
                     </div>
@@ -131,36 +116,31 @@
                             <label for="stato">Stato</label> <br>
                             <input class="user-data" type="text" id="stato" name="stato" placeholder="Inserisci stato"
                             <?php // visualizzo il valore già esistente
-                                if (isset($row2))
-                                    echo "value='".$row2["stato"]."'";
+                                echo "value='".$row["stato"]."'";
                             ?> > <br><br>
                            
                             <label for="provincia">Provincia</label> <br>
                             <input class="user-data" type="text" id="provincia" name="provincia" placeholder="Inserisci provincia"
                             <?php // visualizzo il valore già esistente
-                                if (isset($row2))
-                                    echo "value='".$row2["provincia"]."'";
+                                echo "value='".$row["provincia"]."'";
                             ?> > <br><br>
                            
                             <label for="citta">Città</label> <br>
                             <input class="user-data" type="text" id="citta" name="citta" placeholder="Inserisci città"
                             <?php // visualizzo il valore già esistente
-                                if (isset($row2))
-                                    echo "value='".$row2["citta"]."'";
+                                echo "value='".$row["citta"]."'";
                             ?> > <br><br>
                            
                             <label for="indirizzo">Indirizzo</label> <br>
                             <input class="user-data" type="text" id="indirizzo" name="indirizzo" placeholder="Inserisci indirizzo"
                             <?php // visualizzo il valore già esistente
-                                if (isset($row2))
-                                    echo "value='".$row2["indirizzo"]."'";
+                                echo "value='".$row["indirizzo"]."'";
                             ?> > <br><br>
                             
                             <label for="CAP">CAP</label> <br>
                             <input class="user-data" type="text" id="CAP" name="CAP" placeholder="Inserisci codice postale"
                             <?php // visualizzo il valore già esistente
-                                if (isset($row2))
-                                    echo "value='".$row2["CAP"]."'";
+                                echo "value='".$row["CAP"]."'";
                             ?> >
                             </div>
                         </fieldset>                    

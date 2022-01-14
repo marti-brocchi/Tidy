@@ -1,9 +1,12 @@
-<?php session_start(); 
+<?php 
 
 if(isset($_POST["btnBraceletRedirect"])) // redirigo alla pagina del bracciale
 {
-  header("Location: bracelet.php?colore=".$_POST["colore"]);
+  header("Location: ../Shop/bracelet.php?colore=".$_POST["colore"]);
+  exit();
 }
+
+session_start();
 
 ?>
 
@@ -24,7 +27,7 @@ if(isset($_POST["btnBraceletRedirect"])) // redirigo alla pagina del bracciale
     $dateTime = date('m/d/Y h:i:s a', time());
       
     // se non c'è sessione, reindirizza al login
-    if (!(isset($_SESSION["login"]))) header("Location: ../Login/login_form.php");
+    if (!(isset($_SESSION["login"]))) { header("Location: ../Login/login_form.php"); exit(); }
     
      // funzione che stampa la quantità di articoli nel carrello
      function printArticoli() {

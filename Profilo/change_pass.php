@@ -10,11 +10,11 @@
 
 <?php
     include("../Comuni/DB_connect.php");
+    
+    date_default_timezone_get();
+    $dateTime = date('m/d/Y h:i:s a', time());
 
-    if(!isset($_SESSION["login"])) {
-        header("Location: ../Login/login_form.php");
-        exit();
-    }
+    if(!isset($_SESSION["login"])) { header("Location: ../Login/login_form.php"); exit(); }
 
 	if(empty($_POST)) {
         error_log($dateTime." -- Cambio password -- Errore: dati non ricevuti\n", 3, "../../log.txt");

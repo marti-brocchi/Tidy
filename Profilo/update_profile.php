@@ -11,8 +11,11 @@
 <?php 
     include("../Comuni/DB_connect.php");
 
+    date_default_timezone_get();
+	$dateTime = date('m/d/Y h:i:s a', time());
+
     // se non c'è sessione, reindirizza al login
-    if (!(isset($_SESSION["login"]))) header("Location: ../Login/login_form.php");
+    if (!(isset($_SESSION["login"]))) { header("Location: ../Login/login_form.php"); exit(); }
 
     function test_input($data) {
 		$data = trim($data);
@@ -23,7 +26,7 @@
 
     $firstname = isset($_POST["firstname"]) ? test_input($_POST["firstname"]) : "";
     $lastname = isset($_POST["lastname"]) ? test_input($_POST["lastname"]) : "";
-    $dataDiNascita = isset($_POST["dataDiNascita"]) ? test_input($_POST["dataDiNascita"]) : "";
+    $dataDiNascita = isset($_POST["dataDiNascita"]) ? test_input($_POST["dataDiNascita"]) : NULL;
     $telefono = isset($_POST["telefono"]) ? test_input($_POST["telefono"]) : "";
     $stato = isset($_POST["stato"]) ? test_input($_POST["stato"]) : "";
     $provincia = isset($_POST["provincia"]) ? test_input($_POST["provincia"]) : "";
@@ -42,14 +45,14 @@
 
     if (mysqli_num_rows($res)==0) {
         error_log($dateTime." -- Profilo -- Error: nessuna riga associata alla mail\n", 3, "../../log.txt");
-        header("Location: ../Profilo/show_profile.php");
-        exit();
+        //header("Location: ../Profilo/show_profile.php");
+        //exit();
     }
 
     if (mysqli_num_rows($res)>1) {
         error_log($dateTime." -- Profilo -- Error: restituite più righe associate ad una mail\n", 3, "../../log.txt");
-        header("Location: ../Profilo/show_profile.php");
-        exit();
+        //header("Location: ../Profilo/show_profile.php");
+        //exit();
     }
 
     // costruisco una query che aggiorna i dati associati all'utente con quella mail
@@ -64,10 +67,10 @@
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-    if (mysqli_affected_rows($con)==0){
+    if (mysqli_affected_rows($con)!=1){
         error_log($dateTime." -- Profilo -- Error: update non eseguito\n", 3, "../../log.txt");
-        header("Location: ../Profilo/show_profile.php");
-        exit();
+        //header("Location: ../Profilo/show_profile.php");
+        //exit();
     }
 
     //Controllo se esiste all'interno della tabella info_utenti una riga già associata all'utente
@@ -79,7 +82,7 @@
 
     //Se non esiste inserisco nuovi valori id, dataDiNascita, telefono, stato, provincia, citta, indirizzo, CAP, sesso
     if (mysqli_num_rows($res2)==0) {
-        $stmt = mysqli_prepare($con, "INSERT INTO info_utenti VALUES (id=?, dataDiNascita = ?, telefono = ?, stato = ?, provincia = ?, citta = ?, indirizzo = ?, CAP = ?, sesso = ?)");
+        $stmt = mysqli_prepare($con, "INSERT INTO info_utenti VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         if(!$stmt)
         {
             die("errore mysqli: ".mysqli_error($con));
@@ -87,6 +90,7 @@
         mysqli_stmt_bind_param($stmt, "issssssss", $row["id"], $dataDiNascita, $telefono, $stato, $provincia, $citta, $indirizzo, $cap, $sesso);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
+        echo "sono nel posto sbagliato";
     }
 
     //Altrimenti se esiste aggiorno i valori
@@ -99,16 +103,17 @@
         mysqli_stmt_bind_param($stmt, "ssssssssi", $dataDiNascita, $telefono, $stato, $provincia, $citta, $indirizzo, $cap, $sesso, $row["id"]);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
+        echo "sono nel posto giusto";
     }
 
-    if (mysqli_affected_rows($con)==0){
+    if (mysqli_affected_rows($con)!=1){
         error_log($dateTime." -- Profilo -- Error: update non eseguito\n", 3, "../../log.txt");
-        header("Location: ../Profilo/show_profile.php");
-        exit();
+        //header("Location: ../Profilo/show_profile.php");
+        //exit();
     }
 
     mysqli_close($con);
-    header("Location: show_profile.php");
+    //header("Location: show_profile.php");
 ?>
 
 </body>
