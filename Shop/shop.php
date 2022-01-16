@@ -8,10 +8,44 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="../Comuni/style.css">
         <link rel="stylesheet" type="text/css" href="shop-style.css">
+        <link rel="shortcut icon" href="../Immagini/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../Immagini/favicon.ico" type="image/x-icon">
     </head>
     <body>
         <?php 
-            include("../Comuni/header.php");
+          include("../Comuni/header.php");
+        ?>
+        
+        <?php 
+        
+        include("../Comuni/DB_connect.php");
+
+        // restituisce un array associativo con le informazioni del prodotto
+        function getInfoFromCod($con, $prodCod) 
+        {
+            // acquisici il prodotto mediante il codice cod
+            $stmt = mysqli_prepare($con, "SELECT * FROM prodotti WHERE cod = ?");
+            mysqli_stmt_bind_param($stmt, 's', $prodCod);
+
+            mysqli_stmt_execute($stmt);
+            $res = mysqli_stmt_get_result($stmt);
+            $row = mysqli_fetch_assoc($res); 
+            mysqli_stmt_close($stmt);
+
+            // controlla che il risultato sia di una sola riga
+            if (mysqli_num_rows($res)==0) {
+                error_log($dateTime." -- Pagina Shop -- Error: nessuna riga associata al codice\n", 3, "../../log.txt");
+                // header("Location: ../Home/home.php");
+                exit();
+            }
+            if (mysqli_num_rows($res)>1) {
+                error_log($dateTime." -- Pagina Shop -- Error: restituite più righe associate ad un codice\n", 3, "../../log.txt");
+                header("Location: ../Home/home.php");
+                exit();
+            }
+
+            return $row;
+        }
         ?>
         
         <form class="form" action="../Carrello/cart.php" method="post">
@@ -19,15 +53,17 @@
                 <div class="container">
                     <div class="row h-100 align-items-center align-content-center">
 
+                            <?php $row = getInfoFromCod($con,"bracciale_azzurro"); ?>
                             <div class="card" id="brac">
                                 <div class="cardImg">
-                                    <img src="../Immagini/ImmaginiShop/azzurro.png" id="bracImg" alt="bracciale igenizzante">
+                                    <?php echo "<img id=\"bracImg\" src=".$row['pathImg']." alt=".$row['altTextImg']." longdesc=".$row['descImg'].">"; ?>
                                 </div>
+ 
                                 <div class="cardContent">
-                                    <h2>Tidy Bracelet</h2>
-                                    <h2 class="price">&#128;19<small>.99</small></h2>
+                                    <?php echo "<h2>".$row['nome']." Tidy</h2>"; ?>
+                                    <?php echo "<h2 class=\"price\">".$row['prezzo']."&#128;</h2>"; ?>
                                     <div class="product-colors" id="colori">
-
+                                
                                         <label class="colorCont">
                                             <input type="radio" value="azzurro" checked="checked" name="colore">
                                             <span class="checkmark azzurro"></span>
@@ -62,18 +98,20 @@
                                         </select>
                                     </div>
 
-                                    <input type="submit" name="btnBraceletRedirect" class="goTo" value="Vai al Prodotto">
+                                    <a onclick="redToBracPage()" class="goTo"> Vai al Prodotto </a>
                                     <input type="submit" name="btnBracelet" class="buy" value="Acquista Subito">
                                 </div>
                             </div>
 
+                            <?php $row = getInfoFromCod($con,"gel"); ?>
                             <div class="card max-width-gel" id="gel">
                                 <div class="cardImg">
-                                    <img src="../Immagini/ImmaginiShop/gel.png" id="bracImg" alt="gel igenizzante">
+                                    <?php echo "<img src=".$row['pathImg']." alt=".$row['altTextImg']." longdesc=".$row['descImg'].">"; ?>
                                 </div>
+
                                 <div class="cardContent">
-                                    <h2>Gel Igenizzante 80<small>ml</small></h2>
-                                    <h2 class="price">&#128;2<small>.99</small></h2>
+                                    <?php echo "<h2>".$row['nome']." ".$row['caratteristica']."</h2>"; ?>
+                                    <?php echo "<h2 class=\"price\">".$row['prezzo']."&#128;</h2>"; ?>
                                     
                                     <div class="quantCont add-padding-top">
                                         <label for="gelQuant"> Quantità: </label>
@@ -91,13 +129,15 @@
                                 </div>
                             </div>
 
+                            <?php $row = getInfoFromCod($con,"bundle"); ?>
                             <div class="card max-width-bundle" id="bundle">
                                 <div class="cardImg">
-                                    <img src="../Immagini/ImmaginiShop/bundle.png" id="bracImg" alt="bundle 5 bracciali e 5 gel igenizzanti">
+                                    <?php echo "<img src=".$row['pathImg']." alt=".$row['altTextImg']." longdesc=".$row['descImg'].">"; ?>
                                 </div>
+
                                 <div class="cardContent">
-                                    <h2>Bundle 5 Bracelets + 5 Gel Igenizzanti</h2>
-                                    <h2 class="price">&#128;99<small>.99</small></h2>
+                                    <?php echo "<h2>".$row['nome']." ".$row['caratteristica']."</h2>"; ?>
+                                    <?php echo "<h2 class=\"price\">".$row['prezzo']."&#128;</h2>"; ?>
 
                                     <div class="quantCont add-padding-top">
                                         <label for="bundleQuant"> Quantità: </label>

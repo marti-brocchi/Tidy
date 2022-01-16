@@ -69,13 +69,16 @@
     
     mysqli_stmt_bind_param($stmt, "sss", $firstname, $lastname, $_SESSION["email"]);
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
 
-    if (mysqli_affected_rows($con)!=1){
-        error_log($dateTime." -- Profilo -- Error: update non eseguito\n", 3, "../../log.txt");
-        header("Location: ../Profilo/show_profile.php");
+    echo mysqli_affected_rows($con);
+
+    if (mysqli_affected_rows($con)!=0 AND mysqli_affected_rows($con)!=1){
+        error_log($dateTime." -- Profilo -- Error: update non eseguito; Righe coinvolte: ".mysqli_affected_rows($con)."\n", 3, "../../log.txt");
+        // header("Location: ../Profilo/show_profile.php");
         exit();
     }
+
+    mysqli_stmt_close($stmt);
 
     //Controllo se esiste all'interno della tabella info_utenti una riga già associata all'utente
     $stmt = mysqli_prepare($con, "SELECT * FROM info_utenti WHERE id=?");
@@ -93,7 +96,7 @@
         }
         mysqli_stmt_bind_param($stmt, "issssssss", $row["id"], $dataDiNascita, $telefono, $stato, $provincia, $citta, $indirizzo, $cap, $sesso);
 
-        echo " - Execute: ".mysqli_stmt_execute($stmt);
+        mysqli_stmt_execute($stmt);
     }
 
     //Altrimenti se esiste aggiorno i valori

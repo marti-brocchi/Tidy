@@ -1,3 +1,12 @@
+.shop-section {
+    background: url('../Immagini/shopPage-img2.png') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-bottom: 10px;
+}
+
 .card{
   position: relative;
   margin: auto;
@@ -127,7 +136,7 @@
   margin-top: 15px;
   color: black;
   font-size: 15px;
-  padding: 8px 25px;
+  padding: 6px 26px;
   background-color: #0000000e;
   border-radius: 20px;
   border: 1px solid black;

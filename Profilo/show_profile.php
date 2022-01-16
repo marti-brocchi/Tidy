@@ -3,12 +3,13 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <title>Tidy - Profilo</title>
-  <link rel="stylesheet" type="text/css" href="../Comuni/style.css" />
-  <link rel="stylesheet" type="text/css" href="profile-style.css" />
-  <link rel="stylesheet" type="text/css" href="../Comuni/form-style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <meta name = "viewport" content = "width=device-width" />
+    <title>Tidy - Profilo</title>
+    <link rel="stylesheet" type="text/css" href="../Comuni/style.css" />
+    <link rel="stylesheet" type="text/css" href="profile-style.css" />
+    <link rel="stylesheet" type="text/css" href="../Comuni/form-style.css" />
+    <meta name = "viewport" content = "width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="../Immagini/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../Immagini/favicon.ico" type="image/x-icon">
 </head>
 
 <body>

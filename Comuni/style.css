@@ -163,7 +163,9 @@ img {
 }
 
 #searchbar-form.show {
-    display: inline;
+    display: block;
+    width: 90%;
+    margin: 0 auto;
 }
 
 #searchbar-form.hide {
@@ -172,11 +174,19 @@ img {
 
 .header .searchbar {
     padding: 6px;
-    margin: 4px 0;
+    margin: 8px 0;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    font-size: 15px;
 }
 
+#search-button {
+    display: none;
+}
+
+/* Gestione navbar display grande */
 .header .nav {
     padding: 0 15px;
 }

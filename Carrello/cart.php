@@ -1,4 +1,4 @@
-<?php 
+<?php  
 
 if(isset($_POST["btnBraceletRedirect"])) // redirigo alla pagina del bracciale
 {
@@ -12,13 +12,15 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="it">
-    <head>
-        <title> Tidy </title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="../Comuni/style.css">
-        <link rel="stylesheet" type="text/css" href="cart-style.css">
-    </head>
+<head>
+  <title> Tidy </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../Comuni/style.css">
+  <link rel="stylesheet" type="text/css" href="cart-style.css">
+  <link rel="shortcut icon" href="../Immagini/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../Immagini/favicon.ico" type="image/x-icon">
+</head>
 <body>
 	<?php
     include("../Comuni/DB_connect.php");
@@ -27,7 +29,7 @@ session_start();
     $dateTime = date('m/d/Y h:i:s a', time());
       
     // se non c'è sessione, reindirizza al login
-    if (!(isset($_SESSION["login"]))) { header("Location: ../Login/login_form.php"); exit(); }
+    if (!(isset($_SESSION["login"]))) header("Location: ../Login/login_form.php");
     
      // funzione che stampa la quantità di articoli nel carrello
      function printArticoli() {
@@ -104,7 +106,7 @@ session_start();
 
               // acquisici il prodotto mediante il codice cod
               // SELECT * FROM prodotti WHERE cod = $product_i
-              $stmt = mysqli_prepare($con, "SELECT * FROM prodotti WHERE cod=?");
+              $stmt = mysqli_prepare($con, "SELECT * FROM prodotti WHERE cod =?");
               mysqli_stmt_bind_param($stmt, 's', $product_i);
               
               mysqli_stmt_execute($stmt);
@@ -114,12 +116,12 @@ session_start();
       
               // controlla che il risultato sia di una sola riga
               if (mysqli_num_rows($res)==0) {
-                  error_log($dateTime." -- Carrello -- Error: nessuna riga associata al codice:".$product_i."\n", 3, "../../log.txt");
+                  error_log($dateTime." -- Carrello -- Error: nessuna riga associata al codice:".$product_i."\n", 3, $_SERVER["DOCUMENT_ROOT"]."../log.txt");
                   header("Location: ../Home/home.php");
                   exit();
               }
               if (mysqli_num_rows($res)>1) {
-                  error_log($dateTime." -- Carrello -- Error: restituite più righe associate ad un codice\n", 3, "../../log.txt");
+                  error_log($dateTime." -- Carrello -- Error: restituite più righe associate ad un codice\n", 3, $_SERVER["DOCUMENT_ROOT"]."../log.txt");
                   header("Location: ../Home/home.php");
                   exit();
               }
@@ -129,17 +131,14 @@ session_start();
               // echo "<br><br><br>"; // DEBUG
               // print_r($row); // DEBUG
 
-
               echo "<div class=\"item\">";
               echo " <div class=\"image-box\">";
-              echo "   <img src=".$row['pathImg']." alt=".$row['descrizione'].">";
+              echo "   <img src=".$row['pathImg']." alt=".$row['altTextImg']." longdesc=".$row['descImg'].">";
               echo " </div>";
               echo " <div class=\"about\">";
               echo "   <h1 class=\"title\">".$row['nome']."</h1>";
               echo "   <h3 class=\"subtitle\">".$row['caratteristica']."</h3>";
               echo " </div>";
-
-
 
               echo "  <div class=\"counter\">";
               // echo "    <div class=\"btn\">-</div>";

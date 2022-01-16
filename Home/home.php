@@ -8,6 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="../Comuni/style.css">
         <link rel="stylesheet" type="text/css" href="home-style.css">
+        <link rel="shortcut icon" href="../Immagini/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../Immagini/favicon.ico" type="image/x-icon">
     </head>
     <body>
         <?php 

@@ -9,15 +9,12 @@
                 <span></span>
             </label>
             <div class="search">
-                <form class="hide" id="searchbar-form" method="get" action="../Comuni/search.php">
-                    <input type="text" class="searchbar" id="searchbar" placeholder="Cerca un prodotto">
-                </form>
-                <a href="#" id="search-icon"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/search--v1.png" alt="cerca"></img></a>
+                <img id="search-icon" src="https://img.icons8.com/ios-glyphs/30/ffffff/search--v1.png" alt="cerca"></img>
                 <a href="../Carrello/cart.php"><img src="https://img.icons8.com/material-rounded/30/ffffff/shopping-cart-loaded.png" alt="carrello"></img></a>
             </div>
         </div>
     </div>
-    <div class=container>
+    <div class="container">
         <div class="row justify-content-between align-items-center">
             <nav class="nav hide">
                 <ul>
@@ -44,6 +41,13 @@
             </nav>
         </div>
     </div>
-
+    <div class="container">
+        <div class="row">
+            <form class="hide" id="searchbar-form" method="get" action="../Ricerca/search.php">
+                <input type="text" class="searchbar" id="searchbar" name="searched" placeholder="Cerca un prodotto">
+                <input type="submit" id="search-button" name="submit" value="Cerca">
+            </form>
+        </div>
+    </div>
     <script src="../Comuni/header-script.js"></script>
 </header>

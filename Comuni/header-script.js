@@ -25,13 +25,21 @@ for (let i=0; i<link.length; i++) {
     });
 }
 
-//Gestione searchbar
+//Gestione search bar
 var search = document.getElementById("search-icon");
 var searchbarForm = document.getElementById("searchbar-form");
 
+//Gestione eventi per mostrare/nascondere search bar
 search.addEventListener('click', function(event) {
     if (searchbarForm.className==='hide')
         searchbarForm.className='show';
     else
         searchbarForm.className='hide';
+});
+
+window.addEventListener('click', function(event) {
+    if (!searchbarForm.contains(event.target) && !search.contains(event.target)) {
+        if (searchbarForm.className==='show')
+            searchbarForm.className='hide';
+    }
 });

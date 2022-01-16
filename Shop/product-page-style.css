@@ -9,7 +9,7 @@
 }
 
 .prodotto-section .h-100 {
-  padding: 120px 0;
+  padding: 150px 0;
 }
 
 .prodotto-cont{
@@ -20,7 +20,11 @@
 }
 
 .prodotto-cont .img-cont{
-  width: 40%;  
+  width: 40%;
+}
+
+.img-cont img {
+  padding-top: 60px;
 }
 
 .prodotto-cont .desc-cont{
@@ -35,6 +39,22 @@
   text-transform: capitalize;
 }
 
+.prodotto-cont .desc-cont .checkout-details{
+  display: flex;
+  align-items: center;
+}
+
+.prodotto-cont .desc-cont .checkout-details .buyProd{
+  margin-left: 20px;
+  width: fit-content;
+  color: white;
+  font-size: 15px;
+  padding: 8px 30px;
+  background-color: #000000;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid black;
+}
 
 
 /*** Valutazione dei Prodotti ***/
@@ -57,6 +77,11 @@
   font-weight: 400;
 }
 
+/* ausiliarie */
+.add-more-padding-top{
+  padding-top: 30px;
+}
+
 /******* Responsive *******/
 @media(max-width:991px) {
 
@@ -69,6 +94,7 @@
 
     .prodotto-cont .img-cont img{
       max-width: 350px;  
+      padding-top: 0;
     }
 
     .prodotto-cont .desc-cont{
