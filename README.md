@@ -52,3 +52,14 @@ Nome DataBase: saw_progetto21_db (LAX), saw_progetto_21_db (MARTI)
 - cambiando i parametri nei link
 - controllare protezione ricerca
 - controllare ogni volta che vengono stampati dati
+
+**Falle nella Sicurezza da fixare**
+- se avvii da link scriptEmailCheck.php?email=...   ti ritorna se quella mail è registrata o meno 
+  - come facciamo? lo mettiamo fuori dalla document root? perché anche se sei loggato non potresti vedere sta roba
+  - idea migliore che mi è venuta è cambiare la richiesta da get a post
+  - gestire anche caso in cui non gli viene passato nulla (deve tornare false)
+ 
+- checkout.php viene visualizzata anche da link e se non ho ordinato nulla (poco male?)
+
+- la DBconnect.php siamo sicuri possa stare lì?
+
