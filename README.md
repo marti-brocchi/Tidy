@@ -39,6 +39,11 @@ Nome DataBase: saw_progetto21_db (LAX), saw_progetto_21_db (MARTI)
 - Fare valutazioni prodotti
 - Aumentare qualità immagini bracciali
 
+**Profilo**
+- RIVEDERE ASSOLUTAMENTE LOGICA AGGGIORNAMENTO IN UPDATE_PROFILE
+- Aggiungere transazioni, se possibile cancellare query
+- Creare funzione per esecuzione query (possibilmente da definire in db_connect (refactoring)
+
 **Carrello**
 
 **Bug Fix**
