@@ -42,7 +42,7 @@ Nome DataBase: saw_progetto21_db (LAX), saw_progetto_21_db (MARTI)
 **Carrello**
 
 **Bug Fix**
-- ho fixato la visualizzazione nel carrello e ho fatto in modo che aggiungesse i prodotti richiesti da sloggato dopo il login
+- ho fixato la visualizzazione nel carrello e ho fatto in modo che aggiungesse i prodotti richiesti da sloggato dopo il login _(figo)_
 - in scriptShop.js devo levare il for e usare il bubbling
 - c'è ancora qualche log sbagliato perché mi sa che l'ho sovrascritto male io (lax)
 
@@ -56,10 +56,11 @@ Nome DataBase: saw_progetto21_db (LAX), saw_progetto_21_db (MARTI)
 **Falle nella Sicurezza da fixare**
 - se avvii da link scriptEmailCheck.php?email=...   ti ritorna se quella mail è registrata o meno 
   - come facciamo? lo mettiamo fuori dalla document root? perché anche se sei loggato non potresti vedere sta roba
-  - idea migliore che mi è venuta è cambiare la richiesta da get a post
-  - gestire anche caso in cui non gli viene passato nulla (deve tornare false)
+  - idea migliore che mi è venuta è cambiare la richiesta da get a post _Nota:_ secondo me lo buchi anche con post
+  - gestire anche caso in cui non gli viene passato nulla (deve tornare false) 
+  - _Commento:_ scriverei alla Ribba prima di essere bocciati per sta cazzata 
  
-- checkout.php viene visualizzata anche da link e se non ho ordinato nulla (poco male?)
+- checkout.php viene visualizzata anche da link e se non ho ordinato nulla (poco male?) _Commento:_ si risolve facilmente, basta un piccolo controllo che prima o poi farò
 
-- la DBconnect.php siamo sicuri possa stare lì?
+- la DBconnect.php siamo sicuri possa stare lì? _Risposta:_ la Ribba ha detto che normalmente non va bene, ma per il progetto di saw va bene
 
