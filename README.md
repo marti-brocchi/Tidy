@@ -1,4 +1,4 @@
-# saw-progetto21
+# Tidy website
 
 Database progetto: saw21.dibris.unige.it
 
